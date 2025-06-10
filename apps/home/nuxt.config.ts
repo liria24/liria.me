@@ -110,5 +110,6 @@ export default defineNuxtConfig({
     experimental: {
         scanPageMeta: true,
         payloadExtraction: true,
+        inlineRouteRules: true,
     },
 })

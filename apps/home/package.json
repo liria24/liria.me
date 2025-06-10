@@ -43,10 +43,6 @@
         "prettier-plugin-organize-imports": "^4.1.0",
         "prettier-plugin-tailwindcss": "^0.6.12"
     },
-    "engines": {
-        "node": "22.x"
-    },
-    "packageManager": "bun@1.2.15",
     "prettier": {
         "trailingComma": "es5",
         "tabWidth": 4,

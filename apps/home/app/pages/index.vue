@@ -1,4 +1,7 @@
 <script setup lang="ts">
+defineRouteRules({
+    prerender: true,
+})
 defineSeo({
     title: 'Liria',
     titleTemplate: '%s',
