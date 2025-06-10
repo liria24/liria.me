@@ -1,5 +1,5 @@
 {
-    "name": "liria.work",
+    "name": "liria.me",
     "private": true,
     "scripts": {
         "build": "turbo build",
@@ -9,13 +9,13 @@
     },
     "devDependencies": {
         "prettier": "^3.5.3",
-        "turbo": "^2.4.4",
+        "turbo": "^2.5.4",
         "typescript": "5.8.3"
     },
     "engines": {
-        "node": "22.14.0"
+        "node": "22.x"
     },
-    "packageManager": "bun@1.2.8",
+    "packageManager": "bun@1.2.15",
     "workspaces": [
         "apps/*",
         "packages/*"
