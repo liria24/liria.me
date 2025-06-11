@@ -5,10 +5,6 @@
     --font-sans: 'Geist', sans-serif;
 }
 
-:root {
-    --ui-container: 64rem;
-}
-
 html {
     @apply scroll-smooth;
 }

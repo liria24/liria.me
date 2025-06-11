@@ -28,7 +28,7 @@ const title = 'Createz'
                 <header class="mt-6 flex w-full items-center justify-between">
                     <NuxtLinkLocale to="/" class="flex items-center gap-2.5">
                         <NuxtImg
-                            src="/logo_liria.svg"
+                            src="/logo/liria.svg"
                             alt="Liria"
                             :width="32"
                             class="size-8"

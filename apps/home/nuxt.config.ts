@@ -30,7 +30,15 @@ export default defineNuxtConfig({
             include: process.env.NODE_ENV === 'development' ? ['axe-core'] : [],
         },
     },
+    routeRules: {
+        '/': { prerender: true },
+    },
     runtimeConfig: {
+        accessToken: '',
+        discord: {
+            token: '',
+            channelId: '',
+        },
         public: {
             siteUrl: '',
         },
@@ -91,6 +99,13 @@ export default defineNuxtConfig({
             cookieKey: 'i18n_redirected',
         },
     },
+    icon: {
+        customCollections: [{ prefix: 'local', dir: './app/assets/icons' }],
+        clientBundle: {
+            scan: true,
+            includeCustomCollections: true,
+        },
+    },
     schemaOrg: {
         identity: defineOrganization({
             name: 'Liria',
@@ -104,12 +119,10 @@ export default defineNuxtConfig({
         preset: 'vercel',
         experimental: {
             asyncContext: true,
-            openAPI: true,
         },
     },
     experimental: {
         scanPageMeta: true,
         payloadExtraction: true,
-        inlineRouteRules: true,
     },
 })
