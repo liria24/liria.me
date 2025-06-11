@@ -13,7 +13,7 @@ const graphicsItems = [
 defineSeo({
     title: 'Liria',
     titleTemplate: '%s',
-    description: '',
+    description: 'Small Circle by Liry24',
     type: 'website',
 })
 </script>
