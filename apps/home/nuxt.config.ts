@@ -1,7 +1,7 @@
 import tailwindcss from '@tailwindcss/vite'
 import { defineOrganization } from 'nuxt-schema-org/schema'
 
-const baseUrl = import.meta.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+const baseUrl = import.meta.env.NUXT_PUBLIC_SITE_URL || 'https://liria.me'
 const title = 'Liria'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -46,6 +46,7 @@ export default defineNuxtConfig({
     site: {
         url: baseUrl,
         name: title,
+        trailingSlash: false,
     },
     app: {
         head: {
@@ -118,6 +119,10 @@ export default defineNuxtConfig({
             url: 'https://liria.me',
             sameAs: ['https://x.com/liria_24', 'https://github.com/liria24'],
         }),
+    },
+    robots: {
+        blockNonSeoBots: true,
+        blockAiBots: true,
     },
     nitro: {
         preset: 'vercel',
