@@ -116,7 +116,7 @@ export default defineNuxtConfig({
                 width: 460,
                 height: 460,
             },
-            url: 'https://liria.me',
+            email: 'hello@liria.me',
             sameAs: ['https://x.com/liria_24', 'https://github.com/liria24'],
         }),
     },
