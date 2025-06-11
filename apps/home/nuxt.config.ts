@@ -110,7 +110,11 @@ export default defineNuxtConfig({
         identity: defineOrganization({
             name: 'Liria',
             description: 'Small Circle by Liry24',
-            logo: '/logo-liria.png',
+            logo: {
+                url: '/logo-liria.png',
+                width: 460,
+                height: 460,
+            },
             url: 'https://liria.me',
             sameAs: ['https://x.com/liria_24', 'https://github.com/liria24'],
         }),
