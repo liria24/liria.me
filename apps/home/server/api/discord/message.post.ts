@@ -1,4 +1,3 @@
-import { Client, GatewayIntentBits } from 'discord.js'
 import { z } from 'zod/v4'
 
 const body = z.object({
@@ -18,17 +17,14 @@ export default defineEventHandler(async () => {
 
     const { content } = await validateBody(body)
 
-    const client = new Client({
-        intents: [
-            GatewayIntentBits.Guilds,
-            GatewayIntentBits.GuildMessages,
-            GatewayIntentBits.MessageContent,
-        ],
-    })
-    await client.login(config.discord.token)
+    const client = await getDiscordClient()
 
-    const channel = await client.channels.fetch(config.discord.channelId)
+    try {
+        const channel = await client.channels.fetch(config.discord.channelId)
 
-    if (!channel || !channel.isSendable()) return
-    await channel.send(content)
+        if (!channel || !channel.isSendable()) return
+        await channel.send(content)
+    } finally {
+        await client.destroy()
+    }
 })

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const head = useLocaleHead()
-const title = 'Createz'
+const title = 'Liria'
 </script>
 
 <template>

@@ -1,9 +1,8 @@
 import { consola } from 'consola'
 
 export default defineEventHandler(() => {
+    const event = useEvent()
     consola
         .withTag(`API Request ${new Date().toLocaleTimeString()}`)
-        .info(
-            `${useEvent().method.toUpperCase()}: ${getRequestURL(useEvent())}`
-        )
+        .info(`${event.method.toUpperCase()}: ${getRequestURL(event)}`)
 })

@@ -10,10 +10,6 @@ const graphicsItems = [
         image: 'item_reward_nyaacup6.png',
     },
 ]
-
-// defineRouteRules({
-//     prerender: true,
-// })
 defineSeo({
     title: 'Liria',
     titleTemplate: '%s',
