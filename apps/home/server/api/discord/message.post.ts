@@ -64,12 +64,19 @@ export default defineEventHandler(async () => {
     const config = useRuntimeConfig()
 
     const headers = getRequestHeaders(useEvent())
-    if (headers.authorization !== config.accessToken)
+    if (headers.authorization !== `Bearer ${config.accessToken}`) {
+        console.warn(
+            'Request with invalid access token:',
+            headers.authorization,
+            'expected:',
+            `Bearer ${config.accessToken}`
+        )
         throw createError({
             statusCode: 401,
             statusMessage: 'Unauthorized',
             message: 'Invalid access token',
         })
+    }
 
     const { content, embeds } = await validateBody(body)
 
