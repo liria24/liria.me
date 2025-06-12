@@ -27,7 +27,7 @@ export default defineNuxtConfig({
     vite: {
         plugins: [tailwindcss()],
         optimizeDeps: {
-            include: process.env.NODE_ENV === 'development' ? ['axe-core'] : [],
+            include: import.meta.dev ? ['axe-core'] : [],
         },
     },
     routeRules: {
