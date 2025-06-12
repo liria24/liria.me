@@ -3,7 +3,7 @@ import { z } from 'zod/v4'
 
 const body = z
     .object({
-        content: z.string().min(1, 'Content is required').optional(),
+        content: z.string().optional(),
         embeds: z
             .array(
                 z.object({
@@ -49,9 +49,16 @@ const body = z
             .max(10)
             .optional(),
     })
-    .refine((data) => data.content || (data.embeds && data.embeds.length > 0), {
-        message: 'Either content or embeds must be provided',
-    })
+    .refine(
+        (data) => {
+            const hasContent = data.content && data.content.trim().length > 0
+            const hasEmbeds = data.embeds && data.embeds.length > 0
+            return hasContent || hasEmbeds
+        },
+        {
+            message: 'Either content or embeds must be provided',
+        }
+    )
 
 export default defineEventHandler(async () => {
     const config = useRuntimeConfig()
