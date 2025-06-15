@@ -25,7 +25,7 @@
         "discord.js": "^14.19.3",
         "eslint": "^9.28.0",
         "nuxt": "^3.17.5",
-        "nuxt-link-checker": "4.3.0",
+        "nuxt-link-checker": "4.3.1",
         "nuxt-schema-org": "5.0.5",
         "nuxt-seo-utils": "7.0.12",
         "tailwind-merge": "^3.3.1",
