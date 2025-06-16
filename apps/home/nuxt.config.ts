@@ -121,8 +121,8 @@ export default defineNuxtConfig({
         }),
     },
     robots: {
+        allow: ['Twitterbot'],
         blockNonSeoBots: true,
-        blockAiBots: true,
     },
     nitro: {
         preset: 'vercel',
