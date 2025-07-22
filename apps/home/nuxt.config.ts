@@ -6,9 +6,6 @@ const title = 'Liria'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    future: {
-        compatibilityVersion: 4,
-    },
     compatibilityDate: '2024-11-01',
     devtools: { enabled: true, timeline: { enabled: true } },
     modules: [
@@ -92,9 +89,6 @@ export default defineNuxtConfig({
                 file: 'ja.json',
             },
         ],
-        bundle: {
-            optimizeTranslationDirective: false,
-        },
         detectBrowserLanguage: {
             useCookie: true,
             cookieKey: 'i18n_redirected',
