@@ -15,7 +15,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://documents.liria.work',
+    site: 'https://documents.liria.me',
     output: 'static',
     adapter: vercel({
         webAnalytics: {
@@ -50,8 +50,8 @@ export default defineConfig({
         fonts: [
             {
                 provider: fontProviders.google(),
-                name: 'Montserrat',
-                cssVariable: '--font-montserrat',
+                name: 'Geist',
+                cssVariable: '--font-geist',
                 weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
             },
         ],

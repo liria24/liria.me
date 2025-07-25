@@ -1,7 +1,7 @@
 import { ImageResponse } from '@vercel/og';
 import type { ReactElement } from 'react';
 
-export const generate = async (element:ReactElement) => {
+export const generate = async (element: ReactElement) => {
     const font = await fetchFont(
         'https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap'
     );

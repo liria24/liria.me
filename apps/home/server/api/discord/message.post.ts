@@ -1,5 +1,5 @@
 import { Client, GatewayIntentBits } from 'discord.js'
-import { z } from 'zod/v4'
+import { z } from 'zod'
 
 const body = z
     .object({

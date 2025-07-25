@@ -1,4 +1,4 @@
-import type { z } from 'zod/v4'
+import type { z } from 'zod'
 
 export const validateParams = async <T extends z.ZodTypeAny>(
     schema: T

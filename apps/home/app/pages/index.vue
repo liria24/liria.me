@@ -10,6 +10,16 @@ const graphicsItems = [
         image: 'item_reward_nyaacup6.png',
     },
 ]
+
+const linkClass = cn(
+    'group relative flex flex-col items-center justify-center gap-4 rounded-2xl p-8 shadow-none shadow-white/20',
+    'ring-2 ring-neutral-200 dark:ring-neutral-800',
+    'hover:ring-neutral-300 dark:hover:ring-neutral-600',
+    'focus-visible:ring-4 focus-visible:ring-neutral-300 focus-visible:outline-none dark:focus-visible:ring-neutral-600',
+    'hover:shadow-lg focus-visible:shadow-lg',
+    'transition duration-200 ease-in-out'
+)
+
 defineSeo({
     title: 'Liria',
     titleTemplate: '%s',
@@ -23,16 +33,7 @@ defineSeo({
         <NuxtLink
             to="https://eicosapenta.booth.pm"
             target="_blank"
-            :class="
-                cn(
-                    'group relative flex flex-col items-center justify-center gap-4 rounded-2xl p-8 shadow-none shadow-white/20',
-                    'ring-2 ring-neutral-200 dark:ring-neutral-800',
-                    'hover:ring-neutral-300 dark:hover:ring-neutral-600',
-                    'focus-visible:ring-4 focus-visible:ring-neutral-300 focus-visible:outline-none dark:focus-visible:ring-neutral-600',
-                    'hover:shadow-lg focus-visible:shadow-lg',
-                    'transition duration-200 ease-in-out'
-                )
-            "
+            :class="cn(linkClass, 'row-span-2')"
         >
             <div
                 class="flex grow flex-col items-center justify-center gap-2 pt-8 pb-6"
@@ -84,21 +85,8 @@ defineSeo({
                 />
             </div>
         </NuxtLink>
-        <NuxtLink
-            to="https://avatio.me"
-            target="_blank"
-            :class="
-                cn(
-                    'group relative flex flex-col items-center justify-center gap-4 rounded-2xl p-8 shadow-none shadow-white/20',
-                    'ring-2 ring-neutral-200 dark:ring-neutral-800',
-                    'hover:ring-neutral-300 dark:hover:ring-neutral-600',
-                    'focus-visible:ring-4 focus-visible:ring-neutral-300 focus-visible:outline-none dark:focus-visible:ring-neutral-600',
-                    'hover:shadow-lg focus-visible:shadow-lg',
-                    'transition duration-200 ease-in-out',
-                    'overflow-hidden'
-                )
-            "
-        >
+
+        <NuxtLink to="https://avatio.me" target="_blank" :class="linkClass">
             <NuxtImg
                 src="/avatio/screenshot.png"
                 alt="Avatio"
@@ -110,6 +98,39 @@ defineSeo({
             >
                 <NuxtImg src="/logo/avatio.svg" alt="Avatio" class="h-9" />
                 <p class="text-muted text-sm">Share Your VRSNS Avatars.</p>
+            </div>
+
+            <div
+                class="absolute top-0 right-0 m-3 flex items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100"
+            >
+                <Icon
+                    name="lucide:arrow-up-right"
+                    size="24"
+                    class="text-muted"
+                />
+            </div>
+        </NuxtLink>
+
+        <NuxtLink
+            to="https://presocial.vercel.app"
+            target="_blank"
+            :class="linkClass"
+        >
+            <NuxtImg
+                src="/presocial/screenshot.png"
+                alt="Presocial"
+                class="absolute inset-0 size-full object-cover opacity-15 transition-opacity group-hover:opacity-30"
+            />
+
+            <div
+                class="flex grow flex-col items-center justify-center gap-2 pt-8 pb-6 drop-shadow-xl drop-shadow-black"
+            >
+                <span class="text-center text-4xl font-thin tracking-tighter">
+                    Presocial
+                </span>
+                <p class="text-muted text-sm">
+                    Simple tool to preview X/Twitter posts.
+                </p>
             </div>
 
             <div
