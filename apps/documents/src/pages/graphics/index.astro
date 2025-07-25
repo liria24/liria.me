@@ -4,7 +4,6 @@ import { Image } from 'astro:assets';
 import { getArticles } from '@/lib/graphics';
 import Main from '@/layouts/main.astro';
 import Article from '@/layouts/article.astro';
-import Logo from '../../../public/logo_liria_graphics.png';
 import { twMerge } from 'tailwind-merge';
 
 const articles = await getArticles();
@@ -24,13 +23,10 @@ const articles = await getArticles();
                 target="_blank"
                 class="group flex flex-col gap-4 focus-visible:outline-none"
             >
-                <Image
-                    src={Logo}
-                    alt="Liria Graphics"
-                    format="webp"
-                    loading="eager"
-                    class="max-w-sm md:max-w-lg pr-12 pt-6 md:pt-0 select-none"
-                />
+                <h1 class="text-8xl tracking-tighter flex">
+                    <span class="font-bold text-neutral-200">Liria</span>
+                    <span class="font-thin text-neutral-100">Graphics</span>
+                </h1>
 
                 <div class="flex gap-3 items-center">
                     <Icon

@@ -1,8 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { Image } from 'astro:assets';
 import Main from '@/layouts/main.astro';
-import LogoLiriaGraphics from '../../public/logo_liria_graphics.png';
 ---
 
 <Main
@@ -24,13 +22,10 @@ import LogoLiriaGraphics from '../../public/logo_liria_graphics.png';
                 <Icon name="booth" size={20} class="text-neutral-400" />
             </div>
             <div class="absolute flex items-center">
-                <Image
-                    src={LogoLiriaGraphics}
-                    alt="Liria Graphics"
-                    format="webp"
-                    loading="eager"
-                    class="flex w-64 md:w-72 opacity-60 group-hover:-translate-x-4 group-focus:-translate-x-4 group-hover:opacity-100 transition-all duration-200 ease-in-out"
-                />
+                <div class="text-6xl tracking-tighter flex">
+                    <span class="font-bold text-neutral-200">Liria</span>
+                    <span class="font-thin text-neutral-100">Graphics</span>
+                </div>
 
                 <Icon
                     name="lucide:arrow-right"
