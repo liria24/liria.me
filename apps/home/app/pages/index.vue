@@ -50,8 +50,22 @@ defineSeo({
 </script>
 
 <template>
-    <div class="grid h-full grid-cols-1 gap-8 lg:grid-cols-2">
-        <NuxtLink
+    <div class="grid h-full">
+        <div class="flex w-full items-end justify-between gap-4 self-end pb-6">
+            <span
+                class="text-toned text-[220px] leading-none font-black text-nowrap"
+            >
+                Liria<span class="animate-blink">.</span>
+            </span>
+
+            <Icon
+                name="lucide:arrow-down"
+                size="48"
+                class="text-dimmed mb-6 animate-pulse"
+            />
+        </div>
+
+        <!-- <NuxtLink
             to="https://eicosapenta.booth.pm"
             target="_blank"
             :class="cn(linkClass, 'row-span-2')"
@@ -164,6 +178,6 @@ defineSeo({
                     class="text-muted"
                 />
             </div>
-        </NuxtLink>
+        </NuxtLink> -->
     </div>
 </template>
