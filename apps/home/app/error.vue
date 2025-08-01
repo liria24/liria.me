@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
-import * as locales from '@nuxt/ui/locale'
-
-const { locale } = useI18n()
 
 const props = defineProps({
     error: {
@@ -16,7 +13,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <UApp :locale="locales[locale]">
+    <UApp>
         <NuxtRouteAnnouncer />
         <NuxtLoadingIndicator />
         <NuxtLayout>
@@ -29,12 +26,7 @@ const props = defineProps({
                 <h2 class="text-muted text-lg">
                     {{ props.error.message }}
                 </h2>
-                <UButton
-                    :to="$localePath('/')"
-                    label="Home"
-                    variant="soft"
-                    size="lg"
-                />
+                <UButton to="/" label="Home" variant="soft" size="lg" />
             </div>
         </NuxtLayout>
     </UApp>

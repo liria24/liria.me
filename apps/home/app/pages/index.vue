@@ -1,10 +1,31 @@
 <script setup lang="ts">
 const graphicsItems = [
-    { name: 'Crystal Horn', price: '1000 JPY', image: 'item_crystal_horn.png' },
-    { name: 'Charm Choker', price: '500 JPY', image: 'item_charm_choker.png' },
-    { name: 'Logo Pack', price: '200 JPY', image: 'item_logo_pack.png' },
-    { name: 'Keyholder', price: 'FREE', image: 'item_keyholder.png' },
     {
+        slug: 'crystal-horn',
+        name: 'Crystal Horn',
+        price: '1000 JPY',
+        image: 'item_crystal_horn.png',
+    },
+    {
+        slug: 'charm-choker',
+        name: 'Charm Choker',
+        price: '500 JPY',
+        image: 'item_charm_choker.png',
+    },
+    {
+        slug: 'logo-pack',
+        name: 'Logo Pack',
+        price: '200 JPY',
+        image: 'item_logo_pack.png',
+    },
+    {
+        slug: 'keyholder',
+        name: 'Keyholder',
+        price: 'FREE',
+        image: 'item_keyholder.png',
+    },
+    {
+        slug: 'reward-nyaacup6',
         name: 'Reward Nyaacup6',
         price: 'N/A',
         image: 'item_reward_nyaacup6.png',
@@ -56,9 +77,10 @@ defineSeo({
             </div>
 
             <div class="flex flex-wrap justify-center gap-4">
-                <div
+                <NuxtLink
                     v-for="(item, index) in graphicsItems"
                     :key="'graphics-item-' + index"
+                    :to="`/graphics/${item.slug}`"
                     class="flex flex-col items-center"
                 >
                     <NuxtImg
@@ -72,7 +94,7 @@ defineSeo({
                     <p class="text-dimmed mt-1 text-xs font-light">
                         {{ item.price }}
                     </p>
-                </div>
+                </NuxtLink>
             </div>
 
             <div
