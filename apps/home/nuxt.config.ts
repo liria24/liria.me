@@ -7,29 +7,56 @@ const title = 'Liria'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
+
     devtools: { enabled: true, timeline: { enabled: true } },
+
     modules: [
         '@nuxt/eslint',
         '@nuxt/image',
         '@nuxt/ui',
-        '@nuxtjs/i18n',
         '@nuxtjs/robots',
         '@nuxtjs/sitemap',
         'nuxt-link-checker',
         'nuxt-schema-org',
         'nuxt-seo-utils',
     ],
+
     plugins: [{ src: '~/plugins/axe.client.ts', mode: 'client' }],
+
     css: ['~/assets/css/main.css'],
+
+    routeRules: {
+        '/': {
+            prerender: true,
+            headers: {
+                'Cache-Control': `max-age=${60 * 60 * 24}`, // 1 day
+                'CDN-Cache-Control': `max-age=${60 * 60 * 24 * 30}`, // 30 days
+            },
+        },
+    },
+
+    nitro: {
+        preset: 'vercel',
+        compressPublicAssets: true,
+        vercel: {
+            config: {
+                images: {
+                    minimumCacheTTL: 2678400, // 31 days
+                },
+            },
+        },
+        experimental: {
+            asyncContext: true,
+        },
+    },
+
     vite: {
         plugins: [tailwindcss()],
         optimizeDeps: {
             include: import.meta.dev ? ['axe-core'] : [],
         },
     },
-    routeRules: {
-        '/': { prerender: true },
-    },
+
     runtimeConfig: {
         accessToken: '',
         discord: {
@@ -40,14 +67,16 @@ export default defineNuxtConfig({
             siteUrl: '',
         },
     },
+
     site: {
         url: baseUrl,
         name: title,
         trailingSlash: false,
     },
+
     app: {
         head: {
-            htmlAttrs: { prefix: 'og: https://ogp.me/ns#' },
+            htmlAttrs: { lang: 'ja-JP', prefix: 'og: https://ogp.me/ns#' },
             title,
             meta: [
                 { charset: 'utf-8' },
@@ -63,37 +92,18 @@ export default defineNuxtConfig({
             ],
         },
     },
+
     colorMode: {
         preference: 'dark',
     },
+
     fonts: {
         families: [{ name: 'Geist', provider: 'google' }],
         defaults: {
             weights: [100, 200, 300, 300, 400, 500, 600, 700, 800, 900],
         },
     },
-    i18n: {
-        baseUrl,
-        defaultLocale: 'en',
-        locales: [
-            {
-                code: 'en',
-                language: 'en-US',
-                name: 'English (US)',
-                file: 'en.json',
-            },
-            {
-                code: 'ja',
-                language: 'ja-JP',
-                name: '日本語',
-                file: 'ja.json',
-            },
-        ],
-        detectBrowserLanguage: {
-            useCookie: true,
-            cookieKey: 'i18n_redirected',
-        },
-    },
+
     icon: {
         customCollections: [{ prefix: 'local', dir: './app/assets/icons' }],
         clientBundle: {
@@ -101,6 +111,7 @@ export default defineNuxtConfig({
             includeCustomCollections: true,
         },
     },
+
     schemaOrg: {
         identity: defineOrganization({
             name: 'Liria',
@@ -114,16 +125,13 @@ export default defineNuxtConfig({
             sameAs: ['https://x.com/liria_24', 'https://github.com/liria24'],
         }),
     },
+
     robots: {
-        allow: ['Twitterbot'],
+        allow: ['Twitterbot', 'facebookexternalhit'],
         blockNonSeoBots: true,
+        blockAiBots: true,
     },
-    nitro: {
-        preset: 'vercel',
-        experimental: {
-            asyncContext: true,
-        },
-    },
+
     experimental: {
         scanPageMeta: true,
         payloadExtraction: true,
