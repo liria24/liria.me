@@ -11,7 +11,6 @@ export default defineNuxtConfig({
     devtools: { enabled: true, timeline: { enabled: true } },
 
     modules: [
-        '@nuxt/content',
         '@nuxt/eslint',
         '@nuxt/image',
         '@nuxt/ui',
@@ -20,6 +19,7 @@ export default defineNuxtConfig({
         'nuxt-link-checker',
         'nuxt-schema-org',
         'nuxt-seo-utils',
+        '@nuxt/content',
     ],
 
     plugins: [{ src: '~/plugins/axe.client.ts', mode: 'client' }],
@@ -96,6 +96,16 @@ export default defineNuxtConfig({
 
     colorMode: {
         preference: 'dark',
+    },
+
+    content: {
+        build: {
+            markdown: {
+                remarkPlugins: {
+                    'remark-breaks': {},
+                },
+            },
+        },
     },
 
     fonts: {

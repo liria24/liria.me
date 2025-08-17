@@ -7,21 +7,19 @@ const title = 'Liria'
         <Head>
             <Title>{{ title }}</Title>
         </Head>
-        <Body>
-            <UContainer class="flex w-full flex-col gap-6">
-                <div class="flex min-h-[100dvh] w-full flex-col gap-6">
-                    <header
-                        class="mt-6 flex w-full items-center justify-between"
-                    >
-                        <NuxtLink to="/" class="flex items-center gap-2.5">
-                            <NuxtImg
-                                src="/logo/liria.svg"
-                                alt="Liria"
-                                :width="32"
-                                class="size-8"
-                            />
-                        </NuxtLink>
 
+        <Body>
+            <UContainer class="flex min-h-[100dvh] w-full flex-col gap-6">
+                <UHeader :ui="{ container: 'px-0' }" class="border-0">
+                    <template #title>
+                        <Icon
+                            name="local:liria"
+                            size="32"
+                            class="text-highlighted"
+                        />
+                    </template>
+
+                    <template #right>
                         <div class="flex items-center gap-2">
                             <UButton
                                 to="https://x.com/liria_24"
@@ -38,18 +36,20 @@ const title = 'Liria'
                                 variant="ghost"
                             />
                         </div>
-                    </header>
+                    </template>
+                </UHeader>
 
-                    <main class="grid grow px-3">
-                        <slot />
-                    </main>
-                </div>
+                <UMain class="grid min-h-0 grow px-3">
+                    <slot />
+                </UMain>
 
-                <footer class="flex w-full justify-end gap-4 px-4 pt-12 pb-4">
-                    <p class="text-dimmed text-sm">
-                        &copy; {{ new Date().getFullYear() }} Liria
-                    </p>
-                </footer>
+                <UFooter>
+                    <template #right>
+                        <p class="text-dimmed text-sm">
+                            &copy; {{ new Date().getFullYear() }} Liria
+                        </p>
+                    </template>
+                </UFooter>
             </UContainer>
         </Body>
     </Html>

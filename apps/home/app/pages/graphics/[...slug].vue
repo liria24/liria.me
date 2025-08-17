@@ -1,14 +1,19 @@
 <script setup lang="ts">
 const route = useRoute()
+
+const { data: navigation } = await useAsyncData('navigation', () =>
+    queryCollectionNavigation('graphics')
+)
+
 const path = Array.isArray(route.params.slug)
     ? route.params.slug.join('/')
     : route.params.slug || ''
 
-const { data } = await useAsyncData(() =>
+const { data: page } = await useAsyncData(() =>
     queryCollection('graphics').path(`/graphics/${path}`).first()
 )
 
-if (!data.value) {
+if (!page.value) {
     throw createError({
         statusCode: 404,
         statusMessage: 'Page not found',
@@ -16,15 +21,24 @@ if (!data.value) {
 }
 
 useSeoMeta({
-    title: data.value?.title,
-    description: data.value?.description,
+    title: page.value?.title,
+    titleTemplate: '%s | LiriaGraphics',
+    description: page.value?.description,
 })
 </script>
 
 <template>
-    <ContentRenderer
-        v-if="data"
-        :value="data"
-        class="prose prose-zinc prose-invert"
-    />
+    <UPage>
+        <template #left>
+            <UPageAside>
+                <UContentNavigation :navigation="navigation" />
+            </UPageAside>
+        </template>
+
+        <ContentRenderer v-if="page" :value="page" />
+
+        <template #right>
+            <UContentToc :links="page?.body?.toc?.links" />
+        </template>
+    </UPage>
 </template>

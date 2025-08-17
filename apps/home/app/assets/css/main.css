@@ -1,9 +1,14 @@
 @import 'tailwindcss';
 @import '@nuxt/ui';
-@plugin "@tailwindcss/typography";
+
+@source "../../../content/**/*";
 
 @theme {
     --font-sans: 'Geist', sans-serif;
+}
+
+:root {
+    --ui-header-height: --spacing(20);
 }
 
 html {
@@ -22,5 +27,5 @@ html {
 }
 
 .animate-blink {
-    animation: blink 1s infinite;
+    animation: blink 0.5s infinite;
 }
