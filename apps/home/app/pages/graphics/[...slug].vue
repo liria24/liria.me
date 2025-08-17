@@ -9,20 +9,15 @@ const { data: navigation } = await useAsyncData('navigation', () =>
     queryCollectionNavigation('graphics')
 )
 
-const path = Array.isArray(route.params.slug)
-    ? route.params.slug.join('/')
-    : route.params.slug || ''
-
-const { data: page } = await useAsyncData(() =>
-    queryCollection('graphics').path(`/graphics/${path}`).first()
+const { data: page } = await useAsyncData(route.path, () =>
+    queryCollection('graphics').path(route.path).first()
 )
 
-if (!page.value) {
+if (!page.value)
     throw createError({
         statusCode: 404,
         statusMessage: 'Page not found',
     })
-}
 
 useSeoMeta({
     title: page.value?.title,
