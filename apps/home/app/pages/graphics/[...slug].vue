@@ -1,4 +1,8 @@
 <script setup lang="ts">
+defineRouteRules({
+    prerender: true,
+})
+
 const route = useRoute()
 
 const { data: navigation } = await useAsyncData('navigation', () =>
