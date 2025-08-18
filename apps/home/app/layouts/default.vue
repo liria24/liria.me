@@ -10,7 +10,11 @@ const title = 'Liria'
 
         <Body>
             <UContainer class="flex min-h-[100dvh] w-full flex-col gap-6">
-                <UHeader :ui="{ container: 'px-0' }" class="border-0">
+                <UHeader
+                    :toggle="false"
+                    :ui="{ container: 'px-0' }"
+                    class="border-0"
+                >
                     <template #title>
                         <Icon
                             name="local:liria"

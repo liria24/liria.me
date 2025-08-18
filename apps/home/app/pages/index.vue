@@ -62,13 +62,13 @@ defineSeo({
 
         <section id="graphics" class="flex flex-col items-start gap-4 pt-24">
             <div
-                class="flex w-full flex-col items-start justify-between gap-1 md:flex-row md:items-baseline"
+                class="flex w-full flex-col items-start justify-between gap-x-1 gap-y-3 lg:flex-row lg:items-baseline"
             >
                 <div class="flex items-baseline gap-8">
                     <NuxtLink
                         to="https://eicosapenta.booth.pm"
                         target="_blank"
-                        class="flex items-baseline gap-4"
+                        class="group flex items-baseline gap-1"
                     >
                         <div class="flex items-baseline">
                             <span class="text-5xl font-bold tracking-tight">
@@ -79,10 +79,27 @@ defineSeo({
                             </span>
                         </div>
 
-                        <span class="text-muted font-light">booth.pm</span>
+                        <span
+                            class="text-muted ml-3 font-light transition-colors group-hover:text-[#fc4d50]"
+                        >
+                            booth.pm
+                        </span>
+                        <Icon
+                            name="lucide:arrow-up-right"
+                            size="18"
+                            class="text-muted mb-1 self-end transition-colors group-hover:text-[#fc4d50]"
+                        />
                     </NuxtLink>
 
-                    <ULink to="/graphics" class="font-medium">Documents</ULink>
+                    <UButton
+                        to="/graphics"
+                        trailing-icon="lucide:arrow-right"
+                        variant="link"
+                        :ui="{ trailingIcon: 'size-[18px]' }"
+                        class="p-0 text-base font-medium"
+                    >
+                        Documents
+                    </UButton>
                 </div>
 
                 <p class="text-muted font-light">
@@ -134,13 +151,38 @@ defineSeo({
         </section>
 
         <section id="avatio" class="flex flex-col gap-8 pt-24">
-            <NuxtLink
-                to="https://avatio.me"
-                target="_blank"
-                class="flex items-baseline"
+            <div
+                class="flex w-full flex-col items-start justify-between gap-x-1 gap-y-3 lg:flex-row lg:items-baseline"
             >
-                <NuxtImg src="/avatio/logo.svg" alt="Avatio" class="h-12" />
-            </NuxtLink>
+                <div class="flex items-end gap-8">
+                    <NuxtLink
+                        to="https://avatio.me"
+                        target="_blank"
+                        class="group flex items-end gap-1"
+                    >
+                        <NuxtImg
+                            src="/avatio/logo.svg"
+                            alt="Avatio"
+                            class="mb-1 h-12"
+                        />
+
+                        <span
+                            class="text-muted ml-3 font-light transition-colors group-hover:text-emerald-400"
+                        >
+                            avatio.me
+                        </span>
+                        <Icon
+                            name="lucide:arrow-up-right"
+                            size="18"
+                            class="text-muted mb-1 self-end transition-colors group-hover:text-emerald-400"
+                        />
+                    </NuxtLink>
+                </div>
+
+                <p class="text-muted font-light">
+                    Sharing Platform for VRSNS Avatar Setups
+                </p>
+            </div>
 
             <NuxtImg
                 src="/avatio/screenshot.png"
@@ -150,15 +192,38 @@ defineSeo({
         </section>
 
         <section id="presocial" class="flex flex-col gap-8 pt-24">
-            <NuxtLink
-                to="https://avatio.me"
-                target="_blank"
-                class="flex items-baseline"
+            <div
+                class="flex w-full flex-col items-start justify-between gap-x-1 gap-y-3 lg:flex-row lg:items-baseline"
             >
-                <span class="text-center text-5xl font-thin tracking-tighter">
-                    Presocial
-                </span>
-            </NuxtLink>
+                <div class="flex items-baseline gap-8">
+                    <NuxtLink
+                        to="https://presocial.vercel.app"
+                        target="_blank"
+                        class="group flex items-baseline gap-1"
+                    >
+                        <span
+                            class="text-center text-5xl font-thin tracking-tighter"
+                        >
+                            Presocial
+                        </span>
+
+                        <span
+                            class="text-muted ml-3 font-light transition-colors group-hover:text-blue-500"
+                        >
+                            presocial.vercel.app
+                        </span>
+                        <Icon
+                            name="lucide:arrow-up-right"
+                            size="18"
+                            class="text-muted mb-1 self-end transition-colors group-hover:text-blue-500"
+                        />
+                    </NuxtLink>
+                </div>
+
+                <p class="text-muted font-light">
+                    Simple tool to preview X/Twitter posts
+                </p>
+            </div>
 
             <NuxtImg
                 src="/presocial/screenshot.png"
