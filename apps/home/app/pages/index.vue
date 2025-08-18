@@ -32,6 +32,94 @@ const graphicsItems = [
     },
 ]
 
+const users = [
+    {
+        name: 'Liry24',
+        description: 'Designer / Developer',
+        avatar: {
+            src: 'https://avatars.githubusercontent.com/u/47878070?v=4',
+            alt: 'Liry24',
+        },
+        website: 'https://liry24.com',
+        skills: [
+            {
+                label: 'Blender',
+                icon: 'simple-icons:blender',
+                iconSize: 20,
+            },
+            {
+                label: 'Maya',
+                icon: 'simple-icons:autodeskmaya',
+            },
+            {
+                label: 'Houdini',
+                icon: 'simple-icons:houdini',
+            },
+            {
+                label: 'Unity',
+                icon: 'simple-icons:unity',
+            },
+            {
+                label: 'Photoshop',
+                icon: 'simple-icons:adobephotoshop',
+                iconSize: 19,
+            },
+            {
+                label: 'Illustrator',
+                icon: 'simple-icons:adobeillustrator',
+                iconSize: 19,
+            },
+            {
+                label: 'Affinity',
+                icon: 'simple-icons:affinity',
+            },
+            {
+                label: 'DaVinci Resolve',
+                icon: 'simple-icons:davinciresolve',
+                iconSize: 19,
+            },
+            {
+                label: 'Visual Studio Code',
+                icon: 'simple-icons:visualstudiocode',
+            },
+            {
+                label: 'Git',
+                icon: 'simple-icons:git',
+                iconSize: 19,
+            },
+            {
+                label: 'TypeScript',
+                icon: 'simple-icons:typescript',
+            },
+            {
+                label: 'Python',
+                icon: 'simple-icons:python',
+            },
+            {
+                label: 'Nuxt',
+                icon: 'simple-icons:nuxt',
+                iconSize: 20,
+            },
+            {
+                label: 'Astro',
+                icon: 'simple-icons:astro',
+            },
+            {
+                label: 'Tauri',
+                icon: 'simple-icons:tauri',
+            },
+            {
+                label: 'Tailwind CSS',
+                icon: 'simple-icons:tailwindcss',
+            },
+            {
+                label: 'PostgreSQL',
+                icon: 'simple-icons:postgresql',
+            },
+        ],
+    },
+]
+
 defineSeo({
     title: 'Liria',
     titleTemplate: '%s',
@@ -60,52 +148,37 @@ defineSeo({
             </div>
         </div>
 
-        <section id="graphics" class="flex flex-col items-start gap-4 pt-24">
-            <div
-                class="flex w-full flex-col items-start justify-between gap-x-1 gap-y-3 lg:flex-row lg:items-baseline"
-            >
-                <div class="flex items-baseline gap-8">
-                    <NuxtLink
-                        to="https://eicosapenta.booth.pm"
-                        target="_blank"
-                        class="group flex items-baseline gap-1"
-                    >
-                        <div class="flex items-baseline">
-                            <span class="text-5xl font-bold tracking-tight">
-                                Liria
-                            </span>
-                            <span class="text-5xl font-thin tracking-tighter">
-                                Graphics
-                            </span>
-                        </div>
-
-                        <span
-                            class="text-muted ml-3 font-light transition-colors group-hover:text-[#fc4d50]"
-                        >
-                            booth.pm
-                        </span>
-                        <Icon
-                            name="lucide:arrow-up-right"
-                            size="18"
-                            class="text-muted mb-1 self-end transition-colors group-hover:text-[#fc4d50]"
-                        />
-                    </NuxtLink>
-
-                    <UButton
-                        to="/graphics"
-                        trailing-icon="lucide:arrow-right"
-                        variant="link"
-                        :ui="{ trailingIcon: 'size-[18px]' }"
-                        class="p-0 text-base font-medium"
-                    >
-                        Documents
-                    </UButton>
+        <UPageSection
+            id="graphics"
+            headline="Store"
+            description="Accessories and Assets Shop for VRChat Avatars."
+            :links="[
+                {
+                    label: 'Visit booth.pm',
+                    to: 'https://eicosapenta.booth.pm',
+                    target: '_blank',
+                    color: 'neutral',
+                    trailingIcon: 'lucide:arrow-up-right',
+                },
+                {
+                    label: 'Documents',
+                    to: '/graphics',
+                    icon: 'lucide:book-text',
+                    variant: 'subtle',
+                },
+            ]"
+            orientation="horizontal"
+        >
+            <template #title>
+                <div class="flex items-baseline">
+                    <span class="text-5xl font-bold tracking-tight">
+                        Liria
+                    </span>
+                    <span class="text-5xl font-thin tracking-tighter">
+                        Graphics
+                    </span>
                 </div>
-
-                <p class="text-muted font-light">
-                    Accessories and Assets Shop for VRChat Avatars
-                </p>
-            </div>
+            </template>
 
             <div class="flex flex-wrap gap-4">
                 <NuxtLink
@@ -148,88 +221,125 @@ defineSeo({
                     </div>
                 </NuxtLink>
             </div>
-        </section>
+        </UPageSection>
 
-        <section id="avatio" class="flex flex-col gap-8 pt-24">
-            <div
-                class="flex w-full flex-col items-start justify-between gap-x-1 gap-y-3 lg:flex-row lg:items-baseline"
-            >
-                <div class="flex items-end gap-8">
-                    <NuxtLink
-                        to="https://avatio.me"
-                        target="_blank"
-                        class="group flex items-end gap-1"
-                    >
-                        <NuxtImg
-                            src="/avatio/logo.svg"
-                            alt="Avatio"
-                            class="mb-1 h-12"
-                        />
-
-                        <span
-                            class="text-muted ml-3 font-light transition-colors group-hover:text-emerald-400"
-                        >
-                            avatio.me
-                        </span>
-                        <Icon
-                            name="lucide:arrow-up-right"
-                            size="18"
-                            class="text-muted mb-1 self-end transition-colors group-hover:text-emerald-400"
-                        />
-                    </NuxtLink>
-                </div>
-
-                <p class="text-muted font-light">
-                    Sharing Platform for VRSNS Avatar Setups
-                </p>
-            </div>
+        <UPageSection
+            id="avatio"
+            headline="Website"
+            description="Sharing Platform for VRSNS Avatar Setups."
+            :links="[
+                {
+                    label: 'Visit avatio.me',
+                    to: 'https://avatio.me',
+                    target: '_blank',
+                    color: 'neutral',
+                    trailingIcon: 'lucide:arrow-up-right',
+                },
+            ]"
+            orientation="horizontal"
+        >
+            <template #title>
+                <NuxtImg
+                    src="/avatio/logo.svg"
+                    alt="Avatio"
+                    class="mb-1 h-12"
+                />
+            </template>
 
             <NuxtImg
                 src="/avatio/screenshot.png"
                 alt="Avatio"
-                class="h-96 w-full object-contain opacity-15"
+                class="w-full rounded-2xl"
             />
-        </section>
+        </UPageSection>
 
-        <section id="presocial" class="flex flex-col gap-8 pt-24">
-            <div
-                class="flex w-full flex-col items-start justify-between gap-x-1 gap-y-3 lg:flex-row lg:items-baseline"
-            >
-                <div class="flex items-baseline gap-8">
-                    <NuxtLink
-                        to="https://presocial.vercel.app"
-                        target="_blank"
-                        class="group flex items-baseline gap-1"
-                    >
-                        <span
-                            class="text-center text-5xl font-thin tracking-tighter"
-                        >
-                            Presocial
-                        </span>
-
-                        <span
-                            class="text-muted ml-3 font-light transition-colors group-hover:text-blue-500"
-                        >
-                            presocial.vercel.app
-                        </span>
-                        <Icon
-                            name="lucide:arrow-up-right"
-                            size="18"
-                            class="text-muted mb-1 self-end transition-colors group-hover:text-blue-500"
-                        />
-                    </NuxtLink>
-                </div>
-
-                <p class="text-muted font-light">
-                    Simple tool to preview X/Twitter posts
-                </p>
-            </div>
+        <UPageSection
+            id="presocial"
+            headline="Website"
+            description="Simple tool to preview X/Twitter posts."
+            :links="[
+                {
+                    label: 'Visit presocial.vercel.app',
+                    to: 'https://presocial.vercel.app',
+                    target: '_blank',
+                    color: 'neutral',
+                    trailingIcon: 'lucide:arrow-up-right',
+                },
+            ]"
+            orientation="horizontal"
+        >
+            <template #title>
+                <span class="text-center text-5xl font-thin tracking-tighter">
+                    Presocial
+                </span>
+            </template>
 
             <NuxtImg
                 src="/presocial/screenshot.png"
                 alt="Presocial"
-                class="h-96 w-full object-contain opacity-15"
+                class="w-full rounded-2xl"
             />
-        </section>
+        </UPageSection>
+
+        <UPageCTA
+            title="Members"
+            variant="soft"
+            orientation="horizontal"
+            :links="[
+                {
+                    label: 'Contact us',
+                    to: 'mailto:hello@liria.me',
+                    variant: 'subtle',
+                    icon: 'lucide:at-sign',
+                    ui: { leadingIcon: 'size-4.5' },
+                },
+                {
+                    label: 'Follow me',
+                    to: 'https://x.com/liria_24',
+                    target: '_blank',
+                    variant: 'outline',
+                    icon: 'simple-icons:x',
+                    ui: { leadingIcon: 'size-4' },
+                },
+            ]"
+        >
+            <UPageList>
+                <UPageCard
+                    v-for="(user, index) in users"
+                    :key="index"
+                    variant="subtle"
+                    :to="user.website"
+                    target="_blank"
+                    spotlight
+                    class="w-full max-w-xl self-center"
+                >
+                    <template #body>
+                        <UUser
+                            :name="user.name"
+                            :description="user.description"
+                            :avatar="user.avatar"
+                            size="xl"
+                        />
+                    </template>
+
+                    <template #footer>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <UTooltip
+                                v-for="(skill, skillIndex) in user.skills"
+                                :key="skillIndex"
+                                :text="skill.label"
+                                :delay-duration="100"
+                            >
+                                <Icon
+                                    :name="skill.icon"
+                                    :size="skill.iconSize || 18"
+                                    class="text-dimmed z-10"
+                                />
+                            </UTooltip>
+                        </div>
+                    </template>
+                </UPageCard>
+            </UPageList>
+        </UPageCTA>
     </div>
 </template>

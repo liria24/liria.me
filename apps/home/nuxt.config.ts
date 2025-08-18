@@ -11,15 +11,15 @@ export default defineNuxtConfig({
     devtools: { enabled: true, timeline: { enabled: true } },
 
     modules: [
+        '@nuxt/ui',
+        '@nuxt/content',
         '@nuxt/eslint',
         '@nuxt/image',
-        '@nuxt/ui',
         '@nuxtjs/robots',
         '@nuxtjs/sitemap',
         'nuxt-link-checker',
         'nuxt-schema-org',
         'nuxt-seo-utils',
-        '@nuxt/content',
     ],
 
     plugins: [{ src: '~/plugins/axe.client.ts', mode: 'client' }],
@@ -119,6 +119,18 @@ export default defineNuxtConfig({
     icon: {
         customCollections: [{ prefix: 'local', dir: './app/assets/icons' }],
         clientBundle: {
+            icons: [
+                'lucide:chevron-right',
+                'lucide:chevron-left',
+                'lucide:chevron-down',
+                'lucide:chevron-up',
+                'lucide:arrow-down',
+                'lucide:arrow-right',
+                'lucide:arrow-up-right',
+                'lucide:tag',
+                'simple-icons:github',
+                'simple-icons:x',
+            ],
             scan: true,
             includeCustomCollections: true,
         },

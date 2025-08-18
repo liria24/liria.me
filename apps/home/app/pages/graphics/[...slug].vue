@@ -12,7 +12,6 @@ defineRouteRules({
 const route = useRoute()
 
 const { data: navigation } = await useAsyncData('navigation', async () => {
-    // 元のナビ取得
     const nav: ContentNavigationItem[] = [
         {
             title: 'Liria Graphics',
@@ -22,26 +21,6 @@ const { data: navigation } = await useAsyncData('navigation', async () => {
                 ?.children,
         },
     ]
-
-    nav.push({
-        title: '外部リンク',
-        icon: 'lucide:link',
-        path: '',
-        children: [
-            {
-                title: 'BOOTH',
-                icon: 'local:booth',
-                trailingIcon: 'lucide:arrow-up-right',
-                path: 'https://eicosapenta.booth.pm',
-            },
-            {
-                title: 'GitHub',
-                icon: 'simple-icons:github',
-                trailingIcon: 'lucide:arrow-up-right',
-                path: 'https://github.com/liria24',
-            },
-        ],
-    })
 
     return nav
 })
@@ -80,7 +59,27 @@ useSeoMeta({
         <ContentRenderer v-if="page" :value="page" />
 
         <template #right>
-            <UContentToc :links="page?.body?.toc?.links" />
+            <UContentToc :links="page?.body?.toc?.links">
+                <template #bottom>
+                    <UPageLinks
+                        :links="[
+                            {
+                                label: 'BOOTH',
+                                icon: 'local:booth',
+                                to: 'https://eicosapenta.booth.pm',
+                                target: '_blank',
+                            },
+                            {
+                                label: 'GitHub',
+                                icon: 'simple-icons:github',
+                                to: 'https://github.com/liria24',
+                                target: '_blank',
+                            },
+                        ]"
+                        :ui="{ linkLeadingIcon: 'size-4' }"
+                    />
+                </template>
+            </UContentToc>
         </template>
     </UPage>
 </template>

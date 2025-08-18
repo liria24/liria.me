@@ -11,6 +11,10 @@
     --ui-header-height: --spacing(20);
 }
 
+.dark {
+    --ui-bg: var(--color-zinc-950);
+}
+
 html {
     @apply scroll-smooth;
 }
