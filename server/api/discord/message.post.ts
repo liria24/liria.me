@@ -10,23 +10,23 @@ const body = z
                     title: z.string().optional(),
                     description: z.string().optional(),
                     color: z.number().optional(),
-                    url: z.url().optional(),
-                    timestamp: z.iso.datetime().optional(),
+                    url: z.string().url().optional(),
+                    timestamp: z.string().datetime().optional(),
                     thumbnail: z
                         .object({
-                            url: z.url(),
+                            url: z.string().url(),
                         })
                         .optional(),
                     image: z
                         .object({
-                            url: z.url(),
+                            url: z.string().url(),
                         })
                         .optional(),
                     author: z
                         .object({
                             name: z.string(),
-                            url: z.url().optional(),
-                            icon_url: z.url().optional(),
+                            url: z.string().url().optional(),
+                            icon_url: z.string().url().optional(),
                         })
                         .optional(),
                     fields: z
@@ -41,7 +41,7 @@ const body = z
                     footer: z
                         .object({
                             text: z.string(),
-                            icon_url: z.url().optional(),
+                            icon_url: z.string().url().optional(),
                         })
                         .optional(),
                 })
