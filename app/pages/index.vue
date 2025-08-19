@@ -13,10 +13,10 @@ const graphicsItems = [
         image: 'item_charm_choker.png',
     },
     {
-        slug: 'logo-pack',
-        name: 'Logo Pack',
+        slug: 'fictitious-logo-pack',
+        name: 'Fictitious Logo Pack',
         price: '200 JPY',
-        image: 'item_logo_pack.png',
+        image: 'item_fictitious_logo_pack.png',
     },
     {
         slug: 'keyholder',
