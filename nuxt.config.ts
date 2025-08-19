@@ -18,6 +18,7 @@ export default defineNuxtConfig({
         '@nuxtjs/robots',
         '@nuxtjs/sitemap',
         'nuxt-link-checker',
+        'nuxt-og-image',
         'nuxt-schema-org',
         'nuxt-seo-utils',
     ],
@@ -29,6 +30,12 @@ export default defineNuxtConfig({
     routeRules: {
         '/': {
             prerender: true,
+            headers: {
+                'Cache-Control': `max-age=${60 * 60 * 24}`, // 1 day
+                'CDN-Cache-Control': `max-age=${60 * 60 * 24 * 30}`, // 30 days
+            },
+        },
+        '/__og-image__/image/og.png': {
             headers: {
                 'Cache-Control': `max-age=${60 * 60 * 24}`, // 1 day
                 'CDN-Cache-Control': `max-age=${60 * 60 * 24 * 30}`, // 30 days
@@ -134,6 +141,16 @@ export default defineNuxtConfig({
             scan: true,
             includeCustomCollections: true,
         },
+    },
+
+    ogImage: {
+        fonts: [
+            'Geist:200',
+            'Geist:400',
+            'Geist:700',
+            'Geist:800',
+            'Geist:900',
+        ],
     },
 
     schemaOrg: {

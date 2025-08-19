@@ -126,6 +126,8 @@ defineSeo({
     description: 'Small Circle by Liry24',
     type: 'website',
 })
+
+defineOgImageComponent('home')
 </script>
 
 <template>
