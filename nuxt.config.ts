@@ -1,4 +1,3 @@
-import tailwindcss from '@tailwindcss/vite'
 import { defineOrganization } from 'nuxt-schema-org/schema'
 
 const baseUrl = import.meta.env.NUXT_PUBLIC_SITE_URL || 'https://liria.me'
@@ -59,7 +58,6 @@ export default defineNuxtConfig({
     },
 
     vite: {
-        plugins: [tailwindcss()],
         optimizeDeps: {
             include: import.meta.dev ? ['axe-core'] : [],
         },

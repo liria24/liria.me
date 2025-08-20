@@ -12,12 +12,10 @@
     "dependencies": {
         "@nuxt/content": "^3.6.3",
         "@nuxt/eslint": "1.9.0",
-        "@nuxt/fonts": "0.11.4",
         "@nuxt/image": "1.11.0",
         "@nuxt/ui": "4.0.0-alpha.0",
-        "@nuxtjs/robots": "5.4.0",
+        "@nuxtjs/robots": "5.5.0",
         "@nuxtjs/sitemap": "7.4.3",
-        "@tailwindcss/vite": "^4.1.12",
         "@typescript-eslint/eslint-plugin": "^8.40.0",
         "@typescript-eslint/parser": "^8.40.0",
         "@vercel/analytics": "^1.5.0",
@@ -29,14 +27,10 @@
         "nuxt-og-image": "5.1.9",
         "nuxt-schema-org": "5.0.6",
         "nuxt-seo-utils": "7.0.14",
-        "remark-breaks": "^4.0.0",
-        "tailwind-merge": "^3.3.1",
-        "tailwindcss": "^4.1.12",
-        "vue": "^3.5.18",
-        "vue-router": "^4.5.1"
+        "remark-breaks": "^4.0.0"
     },
     "devDependencies": {
-        "@iconify-json/lucide": "^1.2.62",
+        "@iconify-json/lucide": "^1.2.63",
         "@iconify-json/simple-icons": "^1.2.48",
         "@types/node": "^24.3.0",
         "axe-core": "^4.10.3",
