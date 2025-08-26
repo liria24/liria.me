@@ -60,46 +60,39 @@ const body = z
         }
     )
 
-export default defineEventHandler(async () => {
-    const config = useRuntimeConfig()
+const config = useRuntimeConfig()
 
-    const headers = getRequestHeaders(useEvent())
-    if (headers.authorization !== `Bearer ${config.accessToken}`) {
-        console.warn(
-            'Request with invalid access token:',
-            headers.authorization,
-            'expected:',
-            `Bearer ${config.accessToken}`
-        )
-        throw createError({
-            statusCode: 401,
-            statusMessage: 'Unauthorized',
-            message: 'Invalid access token',
+export default defineApi(
+    async () => {
+        const { content, embeds } = await validateBody(body)
+
+        const client = new Client({
+            intents: [
+                GatewayIntentBits.Guilds,
+                GatewayIntentBits.GuildMessages,
+                GatewayIntentBits.MessageContent,
+            ],
         })
+        await client.login(config.discord.token)
+
+        try {
+            const channel = await client.channels.fetch(
+                config.discord.channelId
+            )
+
+            if (!channel || !channel.isSendable()) return
+
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const messageOptions: any = {}
+            if (content) messageOptions.content = content
+            if (embeds) messageOptions.embeds = embeds
+
+            await channel.send(messageOptions)
+        } finally {
+            await client.destroy()
+        }
+    },
+    {
+        requireAdmin: true,
     }
-
-    const { content, embeds } = await validateBody(body)
-
-    const client = new Client({
-        intents: [
-            GatewayIntentBits.Guilds,
-            GatewayIntentBits.GuildMessages,
-            GatewayIntentBits.MessageContent,
-        ],
-    })
-    await client.login(config.discord.token)
-
-    try {
-        const channel = await client.channels.fetch(config.discord.channelId)
-
-        if (!channel || !channel.isSendable()) return
-
-        const messageOptions: any = {}
-        if (content) messageOptions.content = content
-        if (embeds) messageOptions.embeds = embeds
-
-        await channel.send(messageOptions)
-    } finally {
-        await client.destroy()
-    }
-})
+)

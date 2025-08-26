@@ -44,7 +44,6 @@ export default defineNuxtConfig({
 
     nitro: {
         preset: 'vercel',
-        compressPublicAssets: true,
         vercel: {
             config: {
                 images: {
@@ -52,6 +51,14 @@ export default defineNuxtConfig({
                 },
             },
         },
+        storage: {
+            blob: {
+                driver: 'vercel-blob',
+                access: 'public',
+                token: import.meta.env.NUXT_BLOB_READ_WRITE_TOKEN,
+            },
+        },
+        compressPublicAssets: true,
         experimental: {
             asyncContext: true,
         },
@@ -65,12 +72,16 @@ export default defineNuxtConfig({
 
     runtimeConfig: {
         accessToken: '',
+        blob: {
+            url: 'https://6neofvzb8xobqold.public.blob.vercel-storage.com',
+            readWriteToken: import.meta.env.NUXT_BLOB_READ_WRITE_TOKEN || '',
+        },
         discord: {
             token: '',
             channelId: '',
         },
         public: {
-            siteUrl: '',
+            siteUrl: baseUrl,
         },
     },
 
@@ -172,8 +183,9 @@ export default defineNuxtConfig({
     },
 
     experimental: {
-        scanPageMeta: true,
-        payloadExtraction: true,
+        crossOriginPrefetch: true,
+        sharedPrerenderData: true,
+        granularCachedData: true,
         inlineRouteRules: true,
     },
 })

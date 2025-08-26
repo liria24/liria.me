@@ -192,7 +192,7 @@ defineOgImageComponent('home')
                     <NuxtImg
                         v-slot="{ src, imgAttrs, isLoaded }"
                         :src="`/graphics/${item.image}`"
-                        alt="Graphics Item"
+                        :alt="item.name"
                         :width="176"
                         :height="176"
                         custom
