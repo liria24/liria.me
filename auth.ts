@@ -12,7 +12,11 @@ export const auth = betterAuth({
     baseURL: import.meta.env.NUXT_BETTER_AUTH_URL as string,
     secret: import.meta.env.NUXT_BETTER_AUTH_SECRET as string,
 
-    trustedOrigins: ['http://localhost:3000', 'https://liria.me'],
+    trustedOrigins: [
+        'http://localhost:3000',
+        'https://www.liria.me',
+        'https://liria.me',
+    ],
 
     database: drizzleAdapter(database, {
         provider: 'pg',
