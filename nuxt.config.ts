@@ -71,7 +71,9 @@ export default defineNuxtConfig({
     },
 
     runtimeConfig: {
-        accessToken: '',
+        liria: {
+            accessToken: import.meta.env.NUXT_LIRIA_ACCESS_TOKEN || '',
+        },
         blob: {
             url: 'https://6neofvzb8xobqold.public.blob.vercel-storage.com',
             readWriteToken: import.meta.env.NUXT_BLOB_READ_WRITE_TOKEN || '',
