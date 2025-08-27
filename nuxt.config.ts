@@ -51,13 +51,6 @@ export default defineNuxtConfig({
                 },
             },
         },
-        storage: {
-            blob: {
-                driver: 'vercel-blob',
-                access: 'public',
-                token: import.meta.env.NUXT_BLOB_READ_WRITE_TOKEN,
-            },
-        },
         compressPublicAssets: true,
         experimental: {
             asyncContext: true,
@@ -73,10 +66,6 @@ export default defineNuxtConfig({
     runtimeConfig: {
         liria: {
             accessToken: import.meta.env.NUXT_LIRIA_ACCESS_TOKEN || '',
-        },
-        blob: {
-            url: 'https://6neofvzb8xobqold.public.blob.vercel-storage.com',
-            readWriteToken: import.meta.env.NUXT_BLOB_READ_WRITE_TOKEN || '',
         },
         discord: {
             token: '',
