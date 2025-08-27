@@ -38,9 +38,27 @@ const users = [
         description: 'Designer / Developer',
         avatar: {
             src: 'https://avatars.githubusercontent.com/u/47878070?v=4',
-            alt: 'Liry24',
+            alt: 'Liry24 Avatar',
         },
         website: 'https://liry24.com',
+        images: [
+            {
+                src: 'https://liry24.com/arts/telephones.jpg',
+                alt: 'Telephones',
+            },
+            {
+                src: 'https://liry24.com/arts/coleman.jpg',
+                alt: 'Coleman',
+            },
+            {
+                src: 'https://liry24.com/arts/danboard.jpg',
+                alt: 'Danboard',
+            },
+            {
+                src: 'https://liry24.com/arts/gate.jpg',
+                alt: 'Gate',
+            },
+        ],
         skills: [
             {
                 label: 'Blender',
@@ -313,15 +331,37 @@ defineOgImageComponent('home')
                     :to="user.website"
                     target="_blank"
                     spotlight
+                    :ui="{ body: 'w-full' }"
                     class="w-full max-w-xl self-center"
                 >
-                    <template #body>
+                    <template #header>
                         <UUser
                             :name="user.name"
                             :description="user.description"
                             :avatar="user.avatar"
                             size="xl"
                         />
+                    </template>
+
+                    <template #body>
+                        <div
+                            class="grid w-full gap-2 empty:hidden"
+                            style="
+                                grid-template-columns: repeat(
+                                    2,
+                                    minmax(0, 1fr)
+                                );
+                            "
+                        >
+                            <NuxtImg
+                                v-for="(image, imageIndex) in user.images"
+                                :key="imageIndex"
+                                :src="image.src"
+                                :alt="image.alt"
+                                :height="128"
+                                class="h-20 w-full rounded-lg object-cover"
+                            />
+                        </div>
                     </template>
 
                     <template #footer>
@@ -334,7 +374,7 @@ defineOgImageComponent('home')
                             >
                                 <Icon
                                     :name="skill.icon"
-                                    :size="skill.iconSize || 18"
+                                    :size="16"
                                     class="text-dimmed z-10"
                                 />
                             </UTooltip>
