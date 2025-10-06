@@ -33,7 +33,7 @@
     "devDependencies": {
         "@iconify-json/lucide": "1.2.68",
         "@iconify-json/simple-icons": "1.2.54",
-        "@types/node": "24.6.2",
+        "@types/node": "24.7.0",
         "axe-core": "4.10.3",
         "prettier": "3.6.2",
         "prettier-plugin-organize-imports": "4.3.0",
