@@ -34,6 +34,12 @@ export default defineNuxtConfig({
                 'CDN-Cache-Control': `max-age=${60 * 60 * 24 * 30}`, // 30 days
             },
         },
+        '/logo.*': {
+            headers: {
+                'Cache-Control': `max-age=${60 * 60 * 24}`, // 1 day
+                'CDN-Cache-Control': `max-age=${60 * 60 * 24 * 30}`, // 30 days
+            },
+        },
         '/__og-image__/image/og.png': {
             headers: {
                 'Cache-Control': `max-age=${60 * 60 * 24}`, // 1 day
@@ -66,10 +72,6 @@ export default defineNuxtConfig({
     runtimeConfig: {
         liria: {
             accessToken: import.meta.env.NUXT_LIRIA_ACCESS_TOKEN || '',
-        },
-        discord: {
-            token: '',
-            channelId: '',
         },
         public: {
             siteUrl: baseUrl,
@@ -158,7 +160,7 @@ export default defineNuxtConfig({
             name: 'Liria',
             description: 'Small Circle by Liry24',
             logo: {
-                url: '/logo-liria.png',
+                url: '/logo.png?s=460',
                 width: 460,
                 height: 460,
             },
