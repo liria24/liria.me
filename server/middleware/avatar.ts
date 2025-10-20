@@ -1,5 +1,3 @@
-import { readFile } from 'node:fs/promises'
-import { join } from 'node:path'
 import sharp from 'sharp'
 import { z } from 'zod'
 
@@ -41,9 +39,13 @@ export default defineEventHandler(async (event) => {
         }
         const { size } = result.data
 
-        // 元画像を取得（publicディレクトリから）
-        const imagePath = join(process.cwd(), 'public', 'logo-liria.png')
-        const imageBuffer = await readFile(imagePath)
+        // 元画像を取得
+        const baseURL = getRequestURL(event).origin
+        const response = await $fetch<ArrayBuffer>('/logo-liria.png', {
+            baseURL,
+            responseType: 'arrayBuffer',
+        })
+        const imageBuffer = Buffer.from(response)
 
         // sharpで画像を処理
         let transformer = sharp(imageBuffer).resize(size, size, {
