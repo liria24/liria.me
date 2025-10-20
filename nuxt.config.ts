@@ -94,7 +94,7 @@ export default defineNuxtConfig({
                     name: 'viewport',
                     content: 'width=device-width, initial-scale=1',
                 },
-                { name: 'icon', content: '/favicon.svg' },
+                { name: 'icon', content: '/favicon.ico' },
                 { property: 'og:type', content: 'website' },
                 { property: 'og:url', content: baseUrl },
                 { property: 'og:title', content: title },
