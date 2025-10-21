@@ -1,4 +1,15 @@
 export default defineAppConfig({
+    app: {
+        title: 'Liria',
+        links: {
+            email: 'mailto:hello@liria.me',
+            github: 'https://github.com/liria24',
+            twitter: 'https://x.com/liria_24',
+            booth: 'https://eicosapenta.booth.pm/',
+            avatio: 'https://avatio.me',
+            presocial: 'https://presocial.vercel.app',
+        },
+    },
     ui: {
         colors: {
             primary: 'zinc',

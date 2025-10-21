@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { app } = useAppConfig()
+
 const graphicsItems = [
     {
         slug: 'crystal-horn',
@@ -37,7 +39,7 @@ const users = [
         name: 'Liry24',
         description: 'Designer / Developer',
         avatar: {
-            src: 'https://avatars.githubusercontent.com/u/47878070?v=4',
+            src: 'https://github.com/Liry24.png',
             alt: 'Liry24 Avatar',
         },
         website: 'https://liry24.com',
@@ -175,7 +177,7 @@ defineOgImageComponent('home')
             :links="[
                 {
                     label: 'Visit booth.pm',
-                    to: 'https://eicosapenta.booth.pm',
+                    to: app.links.booth,
                     target: '_blank',
                     color: 'neutral',
                     trailingIcon: 'lucide:arrow-up-right',
@@ -250,7 +252,7 @@ defineOgImageComponent('home')
             :links="[
                 {
                     label: 'Visit avatio.me',
-                    to: 'https://avatio.me',
+                    to: app.links.avatio,
                     target: '_blank',
                     color: 'neutral',
                     trailingIcon: 'lucide:arrow-up-right',
@@ -280,7 +282,7 @@ defineOgImageComponent('home')
             :links="[
                 {
                     label: 'Visit presocial.vercel.app',
-                    to: 'https://presocial.vercel.app',
+                    to: app.links.presocial,
                     target: '_blank',
                     color: 'neutral',
                     trailingIcon: 'lucide:arrow-up-right',
@@ -308,14 +310,14 @@ defineOgImageComponent('home')
             :links="[
                 {
                     label: 'Contact us',
-                    to: 'mailto:hello@liria.me',
+                    to: app.links.email,
                     variant: 'subtle',
                     icon: 'lucide:at-sign',
                     ui: { leadingIcon: 'size-4.5' },
                 },
                 {
                     label: 'Follow me',
-                    to: 'https://x.com/liria_24',
+                    to: app.links.twitter,
                     target: '_blank',
                     variant: 'outline',
                     icon: 'simple-icons:x',

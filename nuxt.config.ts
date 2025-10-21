@@ -145,6 +145,10 @@ export default defineNuxtConfig({
         },
     },
 
+    image: {
+        domains: ['github.com'],
+    },
+
     ogImage: {
         fonts: [
             'Geist:200',

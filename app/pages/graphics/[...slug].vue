@@ -10,6 +10,7 @@ defineRouteRules({
 })
 
 const route = useRoute()
+const { app } = useAppConfig()
 
 const { data: navigation } = await useAsyncData('navigation', async () => {
     const nav: ContentNavigationItem[] = [
@@ -66,13 +67,13 @@ useSeoMeta({
                             {
                                 label: 'BOOTH',
                                 icon: 'local:booth',
-                                to: 'https://eicosapenta.booth.pm',
+                                to: app.links.booth,
                                 target: '_blank',
                             },
                             {
                                 label: 'GitHub',
                                 icon: 'simple-icons:github',
-                                to: 'https://github.com/liria24',
+                                to: app.links.github,
                                 target: '_blank',
                             },
                         ]"

@@ -1,15 +1,15 @@
 <script lang="ts" setup>
-const title = 'Liria'
+const { app } = useAppConfig()
 </script>
 
 <template>
     <Html>
         <Head>
-            <Title>{{ title }}</Title>
+            <Title>{{ app.title }}</Title>
         </Head>
 
         <Body>
-            <UContainer class="flex min-h-[100dvh] w-full flex-col gap-6">
+            <UContainer class="flex min-h-dvh w-full flex-col gap-6">
                 <UHeader
                     :toggle="false"
                     :ui="{ container: 'px-0' }"
@@ -26,14 +26,17 @@ const title = 'Liria'
                     <template #right>
                         <div class="flex items-center gap-2">
                             <UButton
-                                to="https://x.com/liria_24"
+                                :to="app.links.twitter"
                                 target="_blank"
                                 aria-label="X"
                                 icon="simple-icons:x"
                                 variant="ghost"
+                                :ui="{
+                                    leadingIcon: 'size-4.5 m-px',
+                                }"
                             />
                             <UButton
-                                to="https://github.com/liria24"
+                                :to="app.links.github"
                                 target="_blank"
                                 aria-label="GitHub"
                                 icon="simple-icons:github"
