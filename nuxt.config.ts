@@ -27,19 +27,6 @@ export default defineNuxtConfig({
     css: ['~/assets/css/main.css'],
 
     routeRules: {
-        '/': {
-            prerender: true,
-            headers: {
-                'Cache-Control': `max-age=${60 * 60 * 24}`, // 1 day
-                'CDN-Cache-Control': `max-age=${60 * 60 * 24 * 30}`, // 30 days
-            },
-        },
-        '/logo.*': {
-            headers: {
-                'Cache-Control': `max-age=${60 * 60 * 24}`, // 1 day
-                'CDN-Cache-Control': `max-age=${60 * 60 * 24 * 30}`, // 30 days
-            },
-        },
         '/__og-image__/image/og.png': {
             headers: {
                 'Cache-Control': `max-age=${60 * 60 * 24}`, // 1 day
@@ -177,6 +164,12 @@ export default defineNuxtConfig({
         allow: ['Twitterbot', 'facebookexternalhit'],
         blockNonSeoBots: true,
         blockAiBots: true,
+    },
+
+    ui: {
+        experimental: {
+            componentDetection: true,
+        },
     },
 
     experimental: {
