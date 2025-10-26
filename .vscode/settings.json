@@ -12,5 +12,6 @@
             "(?:'|\"|`)([^']*)(?:'|\"|`)",
             "class:\\s*?[\"'`]([^\"'`]*).*?,"
         ]
-    ]
+    ],
+    "typescript.tsdk": "node_modules\\typescript\\lib"
 }

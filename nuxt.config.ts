@@ -12,7 +12,6 @@ export default defineNuxtConfig({
     modules: [
         '@nuxt/ui',
         '@nuxt/content',
-        '@nuxt/eslint',
         '@nuxt/image',
         '@nuxtjs/robots',
         '@nuxtjs/sitemap',
@@ -177,5 +176,7 @@ export default defineNuxtConfig({
         sharedPrerenderData: true,
         granularCachedData: true,
         inlineRouteRules: true,
+        extractAsyncDataHandlers: true,
+        typescriptPlugin: true,
     },
 })
