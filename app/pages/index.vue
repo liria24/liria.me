@@ -140,10 +140,6 @@ const users = [
                 label: 'Tailwind CSS',
                 icon: 'simple-icons:tailwindcss',
             },
-            {
-                label: 'PostgreSQL',
-                icon: 'simple-icons:postgresql',
-            },
         ],
     },
 ]
