@@ -228,9 +228,7 @@ defineOgImageComponent('home')
                             class="m-2 aspect-square size-40 shrink-0"
                         />
                     </NuxtImg>
-                    <p class="text-muted text-sm font-light">
-                        {{ item.name }}
-                    </p>
+                    <p class="text-muted text-sm font-light">{{ item.name }}</p>
                     <p class="text-dimmed mt-1 text-xs font-light">
                         {{ item.price }}
                     </p>

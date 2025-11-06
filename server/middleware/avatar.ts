@@ -1,4 +1,3 @@
-import sharp from 'sharp'
 import { z } from 'zod'
 
 const AVATAR_REGEX = /^\/avatar\.(png|jpg|jpeg|webp)$/i
@@ -39,40 +38,21 @@ export default defineEventHandler(async (event) => {
         }
         const { size } = result.data
 
-        // 元画像を取得
-        const baseURL = getRequestURL(event).origin
-        const response = await $fetch<ArrayBuffer>('/logo-liria.png', {
-            baseURL,
-            responseType: 'arrayBuffer',
-        })
-        const imageBuffer = Buffer.from(response)
-
-        // sharpで画像を処理
-        let transformer = sharp(imageBuffer).resize(size, size, {
-            fit: 'inside',
-            withoutEnlargement: false,
-        })
-
-        // フォーマットに応じて変換
-        if (format === 'jpg' || format === 'jpeg') {
-            transformer = transformer.jpeg({ quality: 90 })
-            setHeader(event, 'Content-Type', 'image/jpeg')
-        } else if (format === 'webp') {
-            transformer = transformer.webp({ quality: 90 })
-            setHeader(event, 'Content-Type', 'image/webp')
-        } else if (format === 'png') {
-            transformer = transformer.png()
-            setHeader(event, 'Content-Type', 'image/png')
-        }
-
-        // バッファに変換
-        const outputBuffer = await transformer.toBuffer()
+        const img = useImage()
 
         // キャッシュヘッダーを設定
         setHeader(event, 'Cache-Control', `max-age=${60 * 60 * 24 * 7}`) // 7 days
         setHeader(event, 'CDN-Cache-Control', `max-age=${60 * 60 * 24 * 30}`) // 30 days
 
-        return outputBuffer
+        return sendRedirect(
+            event,
+            img('/logo-liria.png', {
+                width: size,
+                height: size,
+                format: format,
+                fit: 'cover',
+            })
+        )
     } catch (error) {
         console.error('Error processing avatar image:', error)
         throw createError({
