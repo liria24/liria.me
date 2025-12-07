@@ -30,12 +30,12 @@ export default defineEventHandler(async (event) => {
     try {
         // クエリパラメータのバリデーション
         const result = await getValidatedQuery(event, (q) => query.safeParse(q))
-        if (!result.success) {
+        if (!result.success)
             throw createError({
                 statusCode: 400,
                 message: 'Invalid query parameters',
             })
-        }
+
         const { size } = result.data
 
         const img = useImage()
