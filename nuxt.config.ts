@@ -5,7 +5,7 @@ const title = 'Liria'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    compatibilityDate: '2024-11-01',
+    compatibilityDate: 'latest',
 
     devtools: { enabled: true, timeline: { enabled: true } },
 
@@ -136,13 +136,7 @@ export default defineNuxtConfig({
     },
 
     ogImage: {
-        fonts: [
-            'Geist:200',
-            'Geist:400',
-            'Geist:700',
-            'Geist:800',
-            'Geist:900',
-        ],
+        fonts: ['Geist:200', 'Geist:400', 'Geist:700', 'Geist:800', 'Geist:900'],
     },
 
     schemaOrg: {
