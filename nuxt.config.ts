@@ -19,9 +19,9 @@ export default defineNuxtConfig({
         'nuxt-og-image',
         'nuxt-schema-org',
         'nuxt-seo-utils',
+        '@nuxt/hints',
+        '@nuxt/a11y',
     ],
-
-    plugins: [{ src: '~/plugins/axe.client.ts', mode: 'client' }],
 
     css: ['~/assets/css/main.css'],
 
@@ -46,12 +46,6 @@ export default defineNuxtConfig({
         compressPublicAssets: true,
         experimental: {
             asyncContext: true,
-        },
-    },
-
-    vite: {
-        optimizeDeps: {
-            include: import.meta.dev ? ['axe-core'] : [],
         },
     },
 
