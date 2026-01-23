@@ -157,20 +157,14 @@ defineOgImageComponent('home')
 <template>
     <div class="flex flex-col gap-8">
         <div class="grid min-h-[92dvh]">
-            <div
-                class="flex w-full items-end justify-between gap-4 self-end pb-12"
-            >
+            <div class="flex w-full items-end justify-between gap-4 self-end pb-12">
                 <span
                     class="text-toned text-9xl leading-none font-black text-nowrap sm:text-[172px] lg:text-[220px]"
                 >
                     Liria<span class="animate-blink">.</span>
                 </span>
 
-                <Icon
-                    name="lucide:arrow-down"
-                    size="48"
-                    class="text-dimmed mb-6 animate-pulse"
-                />
+                <Icon name="lucide:arrow-down" size="48" class="text-dimmed mb-6 animate-pulse" />
             </div>
         </div>
 
@@ -197,12 +191,8 @@ defineOgImageComponent('home')
         >
             <template #title>
                 <div class="flex items-baseline">
-                    <span class="text-5xl font-bold tracking-tight">
-                        Liria
-                    </span>
-                    <span class="text-5xl font-thin tracking-tighter">
-                        Graphics
-                    </span>
+                    <span class="text-5xl font-bold tracking-tight"> Liria </span>
+                    <span class="text-5xl font-thin tracking-tighter"> Graphics </span>
                 </div>
             </template>
 
@@ -223,10 +213,7 @@ defineOgImageComponent('home')
                         class="aspect-square shrink-0 object-cover opacity-100 transition-opacity group-hover:opacity-25"
                     >
                         <img v-if="isLoaded" :src="src" v-bind="imgAttrs" />
-                        <USkeleton
-                            v-else
-                            class="m-2 aspect-square size-40 shrink-0"
-                        />
+                        <USkeleton v-else class="m-2 aspect-square size-40 shrink-0" />
                     </NuxtImg>
                     <p class="text-muted text-sm font-light">{{ item.name }}</p>
                     <p class="text-dimmed mt-1 text-xs font-light">
@@ -237,11 +224,7 @@ defineOgImageComponent('home')
                         class="absolute top-20 flex items-center gap-1 opacity-0 drop-shadow-lg drop-shadow-black transition-opacity group-hover:opacity-100"
                     >
                         <p class="text-sm leading-none font-light">Open Docs</p>
-                        <Icon
-                            name="lucide:arrow-right"
-                            size="20"
-                            class="text-toned"
-                        />
+                        <Icon name="lucide:arrow-right" size="20" class="text-toned" />
                     </div>
                 </NuxtLink>
             </div>
@@ -263,18 +246,10 @@ defineOgImageComponent('home')
             orientation="horizontal"
         >
             <template #title>
-                <NuxtImg
-                    src="/avatio/logo.svg"
-                    alt="Avatio"
-                    class="mb-1 h-12"
-                />
+                <NuxtImg src="/avatio/logo.svg" alt="Avatio" class="mb-1 h-12" />
             </template>
 
-            <NuxtImg
-                src="/avatio/screenshot.png"
-                alt="Avatio"
-                class="w-full rounded-2xl"
-            />
+            <NuxtImg src="/avatio/screenshot.png" alt="Avatio" class="w-full rounded-2xl" />
         </UPageSection>
 
         <UPageSection
@@ -293,16 +268,10 @@ defineOgImageComponent('home')
             orientation="horizontal"
         >
             <template #title>
-                <span class="text-center text-5xl font-thin tracking-tighter">
-                    Presocial
-                </span>
+                <span class="text-center text-5xl font-thin tracking-tighter"> Presocial </span>
             </template>
 
-            <NuxtImg
-                src="/presocial/screenshot.png"
-                alt="Presocial"
-                class="w-full rounded-2xl"
-            />
+            <NuxtImg src="/presocial/screenshot.png" alt="Presocial" class="w-full rounded-2xl" />
         </UPageSection>
 
         <UPageCTA
@@ -350,12 +319,7 @@ defineOgImageComponent('home')
                     <template #body>
                         <div
                             class="grid w-full gap-2 empty:hidden"
-                            style="
-                                grid-template-columns: repeat(
-                                    2,
-                                    minmax(0, 1fr)
-                                );
-                            "
+                            style="grid-template-columns: repeat(2, minmax(0, 1fr))"
                         >
                             <NuxtImg
                                 v-for="(image, imageIndex) in user.images"
@@ -376,11 +340,7 @@ defineOgImageComponent('home')
                                 :text="skill.label"
                                 :delay-duration="100"
                             >
-                                <Icon
-                                    :name="skill.icon"
-                                    :size="16"
-                                    class="text-dimmed z-10"
-                                />
+                                <Icon :name="skill.icon" :size="16" class="text-dimmed z-10" />
                             </UTooltip>
                         </div>
                     </template>

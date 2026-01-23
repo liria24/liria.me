@@ -18,8 +18,7 @@ const { data: navigation } = await useAsyncData('navigation', async () => {
             title: 'Liria Graphics',
             icon: 'local:liria',
             path: '/graphics',
-            children: (await queryCollectionNavigation('graphics'))[0]
-                ?.children,
+            children: (await queryCollectionNavigation('graphics'))[0]?.children,
         },
     ]
 
