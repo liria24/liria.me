@@ -35,7 +35,7 @@ if (!page.value)
         statusMessage: 'Page not found',
     })
 
-useSeoMeta({
+useSeo({
     title: page.value?.title,
     titleTemplate: '%s | LiriaGraphics',
     description: page.value?.description,

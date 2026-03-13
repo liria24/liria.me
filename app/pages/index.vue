@@ -47,25 +47,25 @@ const users = [
         name: 'Liry24',
         description: 'Designer / Developer',
         avatar: {
-            src: 'https://github.com/Liry24.png',
+            src: 'https://github.com/liry24.png',
             alt: 'Liry24 Avatar',
         },
         website: 'https://liry24.com',
         images: [
             {
-                src: 'https://liry24.com/arts/telephones.jpg',
+                src: 'https://images.liry24.com/telephones-PH-mY6.png',
                 alt: 'Telephones',
             },
             {
-                src: 'https://liry24.com/arts/coleman.jpg',
+                src: 'https://images.liry24.com/coleman-NWM43v.png',
                 alt: 'Coleman',
             },
             {
-                src: 'https://liry24.com/arts/danboard.jpg',
+                src: 'https://images.liry24.com/danboard-u6JzgT.png',
                 alt: 'Danboard',
             },
             {
-                src: 'https://liry24.com/arts/gate.jpg',
+                src: 'https://images.liry24.com/ticket-gate-XytcM3.png',
                 alt: 'Gate',
             },
         ],
@@ -144,14 +144,15 @@ const users = [
     },
 ]
 
-defineSeo({
+useSeo({
     title: 'Liria',
     titleTemplate: '%s',
     description: 'Small Circle by Liry24',
-    type: 'website',
+    image: {
+        component: 'Home.takumi',
+    },
+    twitterCard: 'summary_large_image',
 })
-
-defineOgImageComponent('home')
 </script>
 
 <template>

@@ -7,6 +7,10 @@ const title = 'Liria'
 export default defineNuxtConfig({
     compatibilityDate: 'latest',
 
+    future: {
+        compatibilityVersion: 5,
+    },
+
     devtools: { enabled: true, timeline: { enabled: true } },
 
     modules: [
@@ -21,16 +25,25 @@ export default defineNuxtConfig({
         'nuxt-seo-utils',
         '@nuxt/hints',
         '@nuxt/a11y',
+        '@vercel/analytics',
     ],
 
     css: ['~/assets/css/main.css'],
 
-    routeRules: {
-        '/__og-image__/image/og.png': {
-            headers: {
-                'Cache-Control': `max-age=${60 * 60 * 24}`, // 1 day
-                'CDN-Cache-Control': `max-age=${60 * 60 * 24 * 30}`, // 30 days
+    vite: {
+        vue: {
+            features: {
+                optionsAPI: false,
             },
+        },
+        optimizeDeps: {
+            include: [
+                '@nuxt/ui > prosemirror-state',
+                '@nuxt/ui > prosemirror-transform',
+                '@nuxt/ui > prosemirror-model',
+                '@nuxt/ui > prosemirror-view',
+                '@nuxt/ui > prosemirror-gapcursor',
+            ],
         },
     },
 
@@ -44,6 +57,13 @@ export default defineNuxtConfig({
             },
         },
         compressPublicAssets: true,
+        typescript: {
+            tsConfig: {
+                compilerOptions: {
+                    noUncheckedIndexedAccess: true,
+                },
+            },
+        },
         experimental: {
             asyncContext: true,
         },
@@ -70,10 +90,7 @@ export default defineNuxtConfig({
             title,
             meta: [
                 { charset: 'utf-8' },
-                {
-                    name: 'viewport',
-                    content: 'width=device-width, initial-scale=1',
-                },
+                { name: 'viewport', content: 'width=device-width, initial-scale=1' },
                 { name: 'icon', content: '/favicon.ico' },
                 { property: 'og:type', content: 'website' },
                 { property: 'og:url', content: baseUrl },
@@ -99,9 +116,9 @@ export default defineNuxtConfig({
     },
 
     fonts: {
-        families: [{ name: 'Geist', provider: 'google' }],
+        families: [{ name: 'Geist', provider: 'google', preload: true, global: true }],
         defaults: {
-            weights: [100, 200, 300, 300, 400, 500, 600, 700, 800, 900],
+            weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
         },
     },
 
@@ -129,16 +146,12 @@ export default defineNuxtConfig({
         domains: ['github.com'],
     },
 
-    ogImage: {
-        fonts: ['Geist:200', 'Geist:400', 'Geist:700', 'Geist:800', 'Geist:900'],
-    },
-
     schemaOrg: {
         identity: defineOrganization({
             name: 'Liria',
             description: 'Small Circle by Liry24',
             logo: {
-                url: '/logo.png?s=460',
+                url: `${baseUrl}/avatar.png?s=460`,
                 width: 460,
                 height: 460,
             },
@@ -166,5 +179,6 @@ export default defineNuxtConfig({
         inlineRouteRules: true,
         extractAsyncDataHandlers: true,
         typescriptPlugin: true,
+        nitroAutoImports: true,
     },
 })

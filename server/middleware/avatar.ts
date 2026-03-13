@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
     // このミドルウェアが処理すべきパスでなければスキップ
     if (!match) return
 
-    const format = match[1].toLowerCase()
+    const format = match[1]?.toLowerCase()
 
     try {
         // クエリパラメータのバリデーション

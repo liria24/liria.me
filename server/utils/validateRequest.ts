@@ -1,6 +1,5 @@
-import type { z } from 'zod'
-
 import { destr } from 'destr'
+import type { z } from 'zod'
 
 export const validateBody = async <T extends z.ZodTypeAny>(schema: T): Promise<z.infer<T>> => {
     const result = await readValidatedBody(useEvent(), (body) => {
