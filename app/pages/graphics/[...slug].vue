@@ -26,7 +26,7 @@ const { data: navigation } = await useAsyncData('navigation', async () => {
 })
 
 const { data: page } = await useAsyncData(route.path, () =>
-    queryCollection('graphics').path(route.path).first()
+    queryCollection('graphics').path(route.path).first(),
 )
 
 if (!page.value)

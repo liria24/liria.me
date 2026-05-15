@@ -51,7 +51,7 @@ export default defineEventHandler(async (event) => {
                 height: size,
                 format: format,
                 fit: 'cover',
-            })
+            }),
         )
     } catch (error) {
         console.error('Error processing avatar image:', error)

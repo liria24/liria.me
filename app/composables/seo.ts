@@ -81,7 +81,7 @@ export const useSeo = ({
                 name: title,
                 description,
                 inLanguage: 'ja-JP',
-            })
+            }),
         )
     if (schemaOrg?.webPage)
         schemaOrgItems.push(
@@ -97,7 +97,7 @@ export const useSeo = ({
                     : undefined,
                 primaryImageOfPage: ogImage,
                 inLanguage: 'ja-JP',
-            })
+            }),
         )
 
     if (schemaOrg) useSchemaOrg(schemaOrgItems)
