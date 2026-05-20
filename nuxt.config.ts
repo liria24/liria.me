@@ -124,6 +124,9 @@ export default defineNuxtConfig({
             type: 'd1',
             bindingName: 'DB',
         },
+        experimental: {
+            sqliteConnector: 'native',
+        },
     },
 
     fonts: {
