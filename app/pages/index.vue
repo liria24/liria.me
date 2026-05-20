@@ -259,7 +259,7 @@ useSeo({
             description="Simple tool to preview X/Twitter posts."
             :links="[
                 {
-                    label: 'Visit presocial.vercel.app',
+                    label: 'Visit presocial.liria.me',
                     to: app.links.presocial,
                     target: '_blank',
                     color: 'neutral',
