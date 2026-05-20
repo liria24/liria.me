@@ -57,15 +57,17 @@ export default defineNuxtConfig({
             },
         },
         compressPublicAssets: true,
-        typescript: {
-            tsConfig: {
-                compilerOptions: {
-                    noUncheckedIndexedAccess: true,
-                },
-            },
-        },
         experimental: {
             asyncContext: true,
+        },
+    },
+
+    typescript: {
+        typeCheck: true,
+        tsConfig: {
+            compilerOptions: {
+                noUncheckedIndexedAccess: true,
+            },
         },
     },
 
