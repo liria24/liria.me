@@ -53,6 +53,11 @@ export default defineNuxtConfig({
             nodeCompat: true,
             wrangler: {
                 name: 'liria-me',
+                workers_dev: false,
+                vars: {
+                    NUXT_PUBLIC_SITE_URL: 'https://liria.me',
+                },
+                routes: [{ pattern: 'liria.me', custom_domain: true }],
                 d1_databases: [
                     {
                         binding: 'DB',
