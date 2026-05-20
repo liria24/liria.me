@@ -25,7 +25,6 @@ export default defineNuxtConfig({
         'nuxt-seo-utils',
         '@nuxt/hints',
         '@nuxt/a11y',
-        '@vercel/analytics',
     ],
 
     css: ['~/assets/css/main.css'],
@@ -48,13 +47,22 @@ export default defineNuxtConfig({
     },
 
     nitro: {
-        preset: 'vercel',
-        vercel: {
-            config: {
-                images: {
-                    minimumCacheTTL: 2678400, // 31 days
-                },
+        preset: 'cloudflare_module',
+        cloudflare: {
+            deployConfig: true,
+            nodeCompat: true,
+            wrangler: {
+                d1_databases: [
+                    {
+                        binding: 'DB',
+                        database_name: 'liria-me',
+                        database_id: 'e4373f21-df61-479b-ba46-5a953c7df0f9',
+                    },
+                ],
             },
+        },
+        routeRules: {
+            '/liry24': { redirect: { to: 'https://liry24.com', statusCode: 301 } },
         },
         compressPublicAssets: true,
         experimental: {
@@ -72,9 +80,6 @@ export default defineNuxtConfig({
     },
 
     runtimeConfig: {
-        liria: {
-            accessToken: import.meta.env.NUXT_LIRIA_ACCESS_TOKEN || '',
-        },
         public: {
             siteUrl: baseUrl,
         },
@@ -114,7 +119,10 @@ export default defineNuxtConfig({
                 },
             },
         },
-        experimental: { sqliteConnector: 'native' },
+        database: {
+            type: 'd1',
+            bindingName: 'DB',
+        },
     },
 
     fonts: {
