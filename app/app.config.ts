@@ -7,7 +7,7 @@ export default defineAppConfig({
             twitter: 'https://x.com/liria_24',
             booth: 'https://eicosapenta.booth.pm/',
             avatio: 'https://avatio.me',
-            presocial: 'https://presocial.vercel.app',
+            presocial: 'https://presocial.liria.me',
         },
     },
     ui: {
