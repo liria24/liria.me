@@ -52,6 +52,7 @@ export default defineNuxtConfig({
             deployConfig: true,
             nodeCompat: true,
             wrangler: {
+                name: 'liria-me',
                 d1_databases: [
                     {
                         binding: 'DB',
@@ -153,6 +154,10 @@ export default defineNuxtConfig({
     },
 
     image: {
+        provider: 'cloudflare',
+        cloudflare: {
+            baseURL: 'https://liria.me',
+        },
         domains: ['github.com'],
     },
 
