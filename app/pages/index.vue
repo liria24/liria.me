@@ -1,10 +1,6 @@
 <script setup lang="ts">
 defineRouteRules({
     prerender: true,
-    headers: {
-        'Cache-Control': `max-age=${60 * 60 * 24}`, // 1 day
-        'CDN-Cache-Control': `max-age=${60 * 60 * 24 * 31}`, // 31 days
-    },
 })
 
 const { app } = useAppConfig()
