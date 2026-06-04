@@ -52,7 +52,7 @@ useSeo({
             </UPageAside>
         </template>
 
-        <ContentRenderer v-if="page" :value="page" />
+        <ContentRenderer v-if="page" :value="page" class="sentence" />
 
         <template #right>
             <UContentToc :links="page?.body?.toc?.links">
