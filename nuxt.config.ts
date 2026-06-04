@@ -47,7 +47,7 @@ export default defineNuxtConfig({
     },
 
     nitro: {
-        preset: 'cloudflare_module',
+        preset: 'cloudflare-module',
         cloudflare: {
             deployConfig: true,
             nodeCompat: true,
