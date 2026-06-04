@@ -22,7 +22,6 @@
         "@nuxt/ui": "4.8.1",
         "@nuxtjs/robots": "6.0.9",
         "@nuxtjs/sitemap": "8.0.15",
-        "@takumi-rs/core": "^1.7.0",
         "@takumi-rs/wasm": "^1.7.0",
         "clsx": "2.1.1",
         "nuxt": "4.4.7",
