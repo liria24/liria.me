@@ -5,7 +5,7 @@ const title = 'Liria'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    compatibilityDate: '2024-06-03',
+    compatibilityDate: '2026-06-03',
 
     future: {
         compatibilityVersion: 5,
