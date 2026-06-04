@@ -12,7 +12,7 @@ const { data: navigation } = await useAsyncData('navigation', async () => {
     const nav: ContentNavigationItem[] = [
         {
             title: 'Liria Graphics',
-            icon: 'local:liria',
+            icon: 'liria:liria',
             path: '/graphics',
             children: (await queryCollectionNavigation('graphics'))[0]?.children,
         },
@@ -61,7 +61,7 @@ useSeo({
                         :links="[
                             {
                                 label: 'BOOTH',
-                                icon: 'local:booth',
+                                icon: 'liria:booth',
                                 to: app.links.booth,
                                 target: '_blank',
                             },

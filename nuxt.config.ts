@@ -144,22 +144,17 @@ export default defineNuxtConfig({
     },
 
     icon: {
-        customCollections: [{ prefix: 'local', dir: './app/assets/icons' }],
         clientBundle: {
-            icons: [
-                'lucide:chevron-right',
-                'lucide:chevron-left',
-                'lucide:chevron-down',
-                'lucide:chevron-up',
-                'lucide:arrow-down',
-                'lucide:arrow-right',
-                'lucide:arrow-up-right',
-                'lucide:tag',
-                'simple-icons:github',
-                'simple-icons:x',
-            ],
             scan: true,
             includeCustomCollections: true,
+        },
+        serverBundle: {
+            collections: [
+                {
+                    prefix: 'liria',
+                    fetchEndpoint: 'https://icons.liria.me/liria.json',
+                },
+            ],
         },
     },
 
