@@ -77,7 +77,6 @@ export default defineNuxtConfig({
     },
 
     typescript: {
-        typeCheck: true,
         tsConfig: {
             compilerOptions: {
                 noUncheckedIndexedAccess: true,
