@@ -6,28 +6,23 @@ const { app } = useAppConfig()
     <UContainer class="flex min-h-dvh w-full flex-col gap-6">
         <UHeader :toggle="false" :ui="{ container: 'px-0' }" class="border-0">
             <template #title>
-                <Icon name="local:liria" size="32" class="text-highlighted" />
+                <Icon name="liria:liria" size="32" class="text-highlighted" />
             </template>
 
             <template #right>
-                <div class="flex items-center gap-2">
-                    <UButton
-                        :to="app.links.twitter"
-                        target="_blank"
-                        aria-label="X"
-                        icon="simple-icons:x"
-                        variant="ghost"
-                        :ui="{
-                            leadingIcon: 'size-4.5 m-px',
-                        }"
-                    />
-                    <UButton
-                        :to="app.links.github"
-                        target="_blank"
-                        aria-label="GitHub"
-                        icon="simple-icons:github"
-                        variant="ghost"
-                    />
+                <div class="flex items-center">
+                    <UTheme :props="{ button: { target: '_blank', variant: 'ghost' } }">
+                        <UButton
+                            :to="app.links.twitter"
+                            aria-label="X"
+                            icon="mingcute:social-x-fill"
+                        />
+                        <UButton
+                            :to="app.links.github"
+                            aria-label="GitHub"
+                            icon="mingcute:github-fill"
+                        />
+                    </UTheme>
                 </div>
             </template>
         </UHeader>

@@ -9,6 +9,7 @@
         'Meiryo', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial,
         sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji';
     --font-mono: 'Geist Mono', monospace;
+    --font-serif: 'Cormorant', serif;
 }
 
 @utility sentence {

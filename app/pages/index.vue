@@ -5,6 +5,24 @@ defineRouteRules({
 
 const { app } = useAppConfig()
 
+const heloLinks = [
+    {
+        label: 'Liria Graphics',
+        to: '#graphics',
+        icon: 'liria:liria',
+    },
+    {
+        label: 'Avatio',
+        to: '#avatio',
+        icon: 'liria:avatio',
+    },
+    {
+        label: 'Presocial',
+        to: '#presocial',
+        icon: 'liria:presocial',
+    },
+]
+
 const graphicsItems = [
     {
         slug: 'crystal-horn',
@@ -153,15 +171,34 @@ useSeo({
 
 <template>
     <div class="flex flex-col gap-8">
-        <div class="grid min-h-[92dvh]">
-            <div class="flex w-full items-end justify-between gap-4 self-end pb-12">
-                <span
-                    class="text-toned text-9xl leading-none font-black text-nowrap sm:text-[172px] lg:text-[220px]"
-                >
-                    Liria<span class="animate-blink">.</span>
-                </span>
+        <div class="flex min-h-[calc(100dvh-var(--ui-header-height))] flex-col gap-10 pb-24">
+            <span
+                class="text-toned mt-auto font-serif text-6xl font-thin italic sm:text-7xl md:text-8xl"
+            >
+                <span>Create, Develop,<br /></span>
+                <span class="text-indigo-200"> for Communities </span>
+            </span>
 
-                <Icon name="lucide:arrow-down" size="48" class="text-dimmed mb-6 animate-pulse" />
+            <div class="font-mono">
+                <UTheme
+                    :props="{
+                        button: {
+                            variant: 'link',
+                            color: 'neutral',
+                            ui: { base: 'gap-2.5', leadingIcon: 'size-4' },
+                        },
+                    }"
+                >
+                    <template v-for="(link, index) in heloLinks" :key="'helo-link-' + index">
+                        <UButton :to="link.to" :icon="link.icon" :label="link.label" />
+                        <Icon
+                            v-if="index < heloLinks.length - 1"
+                            name="lucide:dot"
+                            size="16"
+                            class="text-dimmed"
+                        />
+                    </template>
+                </UTheme>
             </div>
         </div>
 
