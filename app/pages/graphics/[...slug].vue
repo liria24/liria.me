@@ -31,10 +31,17 @@ if (!page.value)
         statusMessage: 'Page not found',
     })
 
+const ogImage = await useOgImage({
+    title: page.value.title,
+    description: page.value.description,
+})
+
 useSeo({
     title: page.value?.title,
     titleTemplate: '%s | LiriaGraphics',
     description: page.value?.description,
+    image: ogImage,
+    twitterCard: 'summary_large_image',
 })
 </script>
 

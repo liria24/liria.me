@@ -20,7 +20,6 @@ export default defineNuxtConfig({
         '@nuxtjs/robots',
         '@nuxtjs/sitemap',
         'nuxt-link-checker',
-        'nuxt-og-image',
         'nuxt-schema-org',
         'nuxt-seo-utils',
         '@nuxt/hints',
@@ -170,21 +169,22 @@ export default defineNuxtConfig({
     schemaOrg: {
         identity: defineOrganization({
             name: 'Liria',
-            description: 'Small Circle by Liry24',
+            description: 'Creation Circle by Liry24',
             logo: {
-                url: `${baseUrl}/avatar.png?s=460`,
+                url: 'https://liria.me/avatar.png?s=460',
                 width: 460,
                 height: 460,
             },
+            url: 'https://liria.me',
             email: 'hello@liria.me',
             sameAs: ['https://x.com/liria_24', 'https://github.com/liria24'],
         }),
     },
 
-    robots: {
-        allow: ['Twitterbot', 'facebookexternalhit'],
-        blockNonSeoBots: true,
-        blockAiBots: true,
+    sitemap: {
+        sitemaps: true,
+        exclude: ['/avatar.*'],
+        sources: ['/api/__sitemap__/urls'],
     },
 
     ui: {

@@ -1,18 +1,8 @@
-import type { OgImageComponents } from '#og-image/components'
-
-type OgImageInput = {
-    [T in keyof OgImageComponents]: {
-        component: Parameters<typeof defineOgImage<T>>[0]
-        props?: Parameters<typeof defineOgImage<T>>[1]
-        options?: Parameters<typeof defineOgImage<T>>[2]
-    }
-}[keyof OgImageComponents]
-
 interface Args {
     title?: string
     titleTemplate?: string
     description?: string
-    image?: string | OgImageInput
+    image?: string
     type?: 'website' | 'article'
     twitterCard?: 'summary' | 'summary_large_image'
     schemaOrg?: {
@@ -20,10 +10,25 @@ interface Args {
         webPage?: {
             datePublished?: string | Date
             dateModified?: string | Date
+            author?: {
+                username: string
+                name: string
+                description?: string
+                image?: string
+            }
             breadcrumb?: {
                 name: string
                 item: string
             }[]
+        }
+        image?:
+            | boolean
+            | {
+                  url: string
+              }
+        person?: {
+            image?: string
+            sameAs?: string[]
         }
     }
 }
@@ -54,7 +59,7 @@ export const useSeo = ({
         meta: [
             {
                 property: 'og:type',
-                content: type || (route.path === '/' ? 'website' : 'article'),
+                content: type || (route.name === 'index' ? 'website' : 'article'),
             },
         ],
         link: [{ rel: 'icon', href: '/favicon.ico' }],
@@ -62,15 +67,12 @@ export const useSeo = ({
 
     let ogImage: string | undefined = undefined
 
-    if (image && typeof image === 'string') {
+    if (image) {
         ogImage = image.startsWith('/') ? `${config.public.siteUrl}${image}` : image
         useSeoMeta({
             ogImage: ogImage,
             twitterImage: ogImage,
         })
-    } else if (typeof image === 'object') {
-        const ogImageResult = defineOgImage(image.component, image.props, image.options)
-        ogImage = ogImageResult[0]
     }
 
     const schemaOrgItems = []
@@ -80,7 +82,9 @@ export const useSeo = ({
             defineWebSite({
                 name: title,
                 description,
-                inLanguage: 'ja-JP',
+                potentialAction: defineSearchAction({
+                    target: '/search?q={search_term_string}',
+                }),
             }),
         )
     if (schemaOrg?.webPage)
@@ -90,13 +94,36 @@ export const useSeo = ({
                 description,
                 datePublished: schemaOrg.webPage.datePublished,
                 dateModified: schemaOrg.webPage.dateModified,
+                author: schemaOrg.webPage.author
+                    ? definePerson({
+                          url: `/@${schemaOrg.webPage.author.username}`,
+                          name: schemaOrg.webPage.author.name,
+                          description: schemaOrg.webPage.author.description,
+                          image: schemaOrg.webPage.author.image,
+                      })
+                    : undefined,
                 breadcrumb: schemaOrg.webPage.breadcrumb
                     ? defineBreadcrumb({
                           itemListElement: schemaOrg.webPage.breadcrumb,
                       })
                     : undefined,
                 primaryImageOfPage: ogImage,
-                inLanguage: 'ja-JP',
+            }),
+        )
+    if (schemaOrg?.image)
+        schemaOrgItems.push(
+            defineImage({
+                url: typeof schemaOrg.image === 'boolean' ? ogImage : schemaOrg.image.url,
+                description,
+            }),
+        )
+    if (schemaOrg?.person)
+        schemaOrgItems.push(
+            definePerson({
+                name: title,
+                description,
+                image: schemaOrg.person.image || ogImage,
+                sameAs: schemaOrg.person.sameAs,
             }),
         )
 

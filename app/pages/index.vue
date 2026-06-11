@@ -158,13 +158,13 @@ const users = [
     },
 ]
 
+const ogImage = await useOgImage()
+
 useSeo({
     title: 'Liria',
     titleTemplate: '%s',
     description: 'Small Circle by Liry24',
-    image: {
-        component: 'Home.takumi',
-    },
+    image: ogImage,
     twitterCard: 'summary_large_image',
 })
 </script>
